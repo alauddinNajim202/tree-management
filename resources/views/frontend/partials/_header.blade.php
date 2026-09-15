@@ -1,4 +1,96 @@
 <!-- ============================================== HEADER ============================================== -->
+
+<!-- MOBILE ONLY: Announcement Bar -->
+<div class="mobile-announcement mobile-only">
+  🌿 Free Delivery on orders above $99 | Use code: <strong>TREE15</strong> for 15% off
+</div>
+
+<!-- MOBILE ONLY: Slim Header (hamburger + logo + cart) -->
+<div class="mobile-header mobile-only">
+  <button class="mobile-nav-toggle" id="mobileDrawerToggle" type="button">
+    <i class="fa fa-bars"></i>
+  </button>
+  <a href="{{ route('home') }}" class="mobile-logo">
+    <img src="{{ asset('assets/images/logo.png') }}" alt="TreeWorld">
+  </a>
+  <a href="{{ route('shopping-cart') }}" class="mobile-cart-icon">
+    <i class="fa fa-shopping-bag"></i>
+    <span class="mobile-cart-count">2</span>
+  </a>
+</div>
+
+<!-- MOBILE ONLY: Search Bar -->
+<div class="mobile-search-bar mobile-only">
+  <form>
+    <i class="fa fa-search mobile-search-icon"></i>
+    <input type="text" placeholder="I'm searching for..." class="mobile-search-input">
+  </form>
+</div>
+
+<!-- MOBILE ONLY: Dark Overlay for Drawer -->
+<div class="drawer-overlay mobile-only" id="drawerOverlay"></div>
+
+<!-- MOBILE ONLY: Drawer Close Button (injected into sidebar via JS) -->
+<div class="drawer-close-btn mobile-only" id="drawerCloseBtn" style="display:none;">
+  <span class="drawer-title">☰ Browse Categories</span>
+  <button id="mobileDrawerClose"><i class="fa fa-times"></i></button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggle   = document.getElementById('mobileDrawerToggle');
+    var overlay  = document.getElementById('drawerOverlay');
+    var closeBtn = document.getElementById('mobileDrawerClose');
+    var closeBtnDiv = document.getElementById('drawerCloseBtn');
+    var sidebar  = document.querySelector('.sidebar');
+
+    if (window.innerWidth <= 767 && sidebar) {
+      // Inject close button into top of sidebar
+      sidebar.insertBefore(closeBtnDiv, sidebar.firstChild);
+      closeBtnDiv.style.display = 'flex';
+
+      function openDrawer() {
+        sidebar.classList.add('drawer-open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        sidebar.classList.remove('drawer-open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (toggle)   toggle.addEventListener('click', openDrawer);
+      if (overlay)  overlay.addEventListener('click', closeDrawer);
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    }
+  });
+</script>
+
+<!-- MOBILE ONLY: Fixed Bottom Navigation -->
+<div class="mobile-bottom-nav mobile-only">
+  <a href="{{ route('home') }}" class="mobile-bottom-nav-item">
+    <i class="fa fa-th-large"></i>
+    <span>SHOP</span>
+  </a>
+  <a href="{{ route('sign-in') }}" class="mobile-bottom-nav-item">
+    <i class="fa fa-user-circle"></i>
+    <span>ACCOUNT</span>
+  </a>
+  <a href="{{ route('shopping-cart') }}" class="mobile-bottom-nav-item mobile-bottom-nav-center">
+    <i class="fa fa-shopping-bag"></i>
+    <span class="mobile-cart-badge">2</span>
+  </a>
+  <a href="{{ route('my-wishlist') }}" class="mobile-bottom-nav-item">
+    <i class="fa fa-heart"></i>
+    <span>WISHLIST</span>
+  </a>
+  <a href="{{ route('category') }}" class="mobile-bottom-nav-item">
+    <i class="fa fa-percent"></i>
+    <span>OFFERS</span>
+  </a>
+</div>
+
 <header class="header-style-1"> 
   
   <!-- ============================================== TOP MENU ============================================== -->
