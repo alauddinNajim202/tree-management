@@ -25,3 +25,16 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+stisla_src.zip
+stisla-2.3.0.tgz
+package/
+stisla_src/
+temp_index.html
+
+# Archives and compressed files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
