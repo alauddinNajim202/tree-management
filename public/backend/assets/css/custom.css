@@ -5,4 +5,115 @@
  * 
  */
 
+body {
+    color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6, .section-title {
+    color: #111111 !important;
+}
+
+.section-lead {
+    color: #444444;
+}
+
+.card {
+    border: 1px solid #d0d7de;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card .card-header h4 {
+    color: #111111;
+    font-weight: 700;
+}
+
+.form-group label {
+    color: #222222;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+/* Darker borders and text for inputs */
+.form-control, .selectric {
+    color: #111111 !important;
+    border-color: #a5b0bb !important;
+    background-color: #ffffff;
+}
+
+.form-control::placeholder {
+    color: #888888;
+}
+
+.form-control:focus, .selectric-open .selectric {
+    border-color: #6777ef !important;
+    box-shadow: 0 0 0 0.2rem rgba(103, 119, 239, 0.25);
+}
+
+.input-group-text {
+    border-color: #a5b0bb;
+    background-color: #f4f6f9;
+    color: #222222;
+    font-weight: 600;
+}
+
+/* Table styling for better contrast */
+.table th {
+    color: #111111;
+    font-weight: 700;
+    border-bottom: 2px solid #a5b0bb !important;
+    background-color: #f8f9fa;
+}
+
+.table td {
+    color: #222222;
+    border-top: 1px solid #d0d7de !important;
+    vertical-align: middle;
+}
+
+/* Fix for Selectric dropdown text color */
+.selectric .label {
+    color: #111111 !important;
+}
+.selectric-items li {
+    color: #333333;
+}
+.selectric-items li.selected {
+    background: #f4f6f9;
+    color: #111111;
+}
+
+/* Summernote editor text */
+.note-editable {
+    color: #111111 !important;
+}
+.note-editor.note-frame {
+    border-color: #a5b0bb !important;
+}
+
+/* Image preview border and button */
+.image-preview {
+    border: 2px dashed #8894a0 !important;
+    background-color: #f8f9fa;
+}
+
+.image-preview label {
+    background-color: #6777ef !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border-radius: 4px;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Custom switch colors */
+.custom-switch-indicator {
+    background-color: #d0d7de;
+}
+.custom-switch-description {
+    color: #333333;
+    font-weight: 500;
+}
+
 /*# sourceMappingURL=custom.css.map */

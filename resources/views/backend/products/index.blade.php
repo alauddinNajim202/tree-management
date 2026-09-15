@@ -16,6 +16,10 @@
   </div>
 @endsection
 
+@section('header_button')
+  <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Add New</a>
+@endsection
+
 @section('content')
   <h2 class="section-title">Products</h2>
   <p class="section-lead">

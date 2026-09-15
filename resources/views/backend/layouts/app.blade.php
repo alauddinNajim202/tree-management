@@ -15,6 +15,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/assets/css/components.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/css/custom.css') }}">
   
   @stack('styles')
 </head>
@@ -31,6 +32,11 @@
         <section class="section">
           <div class="section-header">
             <h1>@yield('page_header', 'Blank Page')</h1>
+            @hasSection('header_button')
+              <div class="section-header-button">
+                @yield('header_button')
+              </div>
+            @endif
             @yield('breadcrumb')
           </div>
 
