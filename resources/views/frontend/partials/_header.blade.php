@@ -155,11 +155,14 @@
                 <ul class="categories-filter animate-dropdown">
                   <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="{{ route('category') }}">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu" >
-                      <li class="menu-header">Plants</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('category') }}">- Fruit Trees</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('category') }}">- Indoor Plants</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('category') }}">- Outdoor Plants</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('category') }}">- Seeds</a></li>
+                      <li class="menu-header">All Categories</li>
+                      @if(isset($headerCategories) && $headerCategories->count() > 0)
+                        @foreach($headerCategories as $cat)
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('category') }}?category={{ $cat->slug }}">- {{ $cat->name }}</a></li>
+                        @endforeach
+                      @else
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">- No Categories Found</a></li>
+                      @endif
                     </ul>
                   </li>
                 </ul>

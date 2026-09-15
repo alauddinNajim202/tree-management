@@ -19,6 +19,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Illuminate\Support\Facades\View::composer('frontend.partials._header', function ($view) {
+            $categories = \App\Models\Category::parents()->where('status', 1)->orderBy('name')->get();
+            $view->with('headerCategories', $categories);
+            
+        });
+
     }
 }

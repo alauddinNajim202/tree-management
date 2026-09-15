@@ -31,9 +31,19 @@
           </div>
           <div class="card-body">
             
-            <div class="form-group mb-0">
+            <div class="form-group">
               <label>Name</label>
               <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group mb-0">
+              <label>Parent Category (Optional)</label>
+              <select name="parent_id" class="form-control selectric">
+                <option value="">— Select Parent Category —</option>
+                @foreach ($parentCategories as $parent)
+                  <option value="{{ $parent->id }}">{{ $parent->name }}</option>
+                @endforeach
+              </select>
             </div>
 
           </div>

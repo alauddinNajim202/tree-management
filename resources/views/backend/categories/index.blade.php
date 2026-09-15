@@ -37,6 +37,7 @@
                   <th>No</th>
                   <th>Name</th>
                   <th>Image</th>
+                  <th>Parent Category</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -68,6 +69,7 @@
           { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
           { data: 'name', name: 'name' },
           { data: 'image', name: 'image', orderable: false, searchable: false },
+          { data: 'parent_name', name: 'parent_name', orderable: false, searchable: false },
           { data: 'status', name: 'status' },
           { data: 'action', name: 'action', orderable: false, searchable: false }
         ]
