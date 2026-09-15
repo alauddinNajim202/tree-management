@@ -1,0 +1,157 @@
+/* Premium Mobile Enhancements */
+@media (max-width: 767px) {
+    /* 1. Top Bar */
+    .top-bar {
+        background-color: #2c3e50 !important;
+        padding: 8px 0;
+    }
+    .top-bar .cnt-account ul > li > a, 
+    .top-bar .cnt-block ul > li > a {
+        color: #ecf0f1 !important;
+        font-size: 12px;
+        font-weight: 500;
+        text-shadow: none;
+    }
+    .top-bar .cnt-account ul > li {
+        padding: 0 8px;
+    }
+    
+    /* 2. Main Header */
+    .main-header {
+        padding: 15px 0 !important;
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    
+    /* Logo Center */
+    .logo-holder {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .logo-holder .logo img {
+        max-height: 45px;
+        display: inline-block;
+    }
+    
+    /* 3. Search Area Redesign */
+    .top-search-holder {
+        margin-bottom: 20px;
+    }
+    .search-area {
+        background: #f8f9fa !important;
+        border: 1px solid #e2e8f0;
+        border-radius: 25px !important;
+        overflow: hidden;
+        display: flex;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+    .search-area .categories-filter {
+        width: 35%;
+        border-right: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .search-area .categories-filter .dropdown > a {
+        color: #4a5568 !important;
+        font-weight: 500;
+        font-size: 13px;
+        padding: 12px 10px !important;
+        background: transparent !important;
+    }
+    .search-area .search-field {
+        width: 50% !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 12px 15px !important;
+        font-size: 14px;
+        color: #2d3748 !important;
+    }
+    .search-area .search-button {
+        width: 15% !important;
+        background-color: #10b981 !important; /* Premium Green */
+        border: none !important;
+        position: static !important;
+    }
+    
+    /* 4. Cart Area */
+    .top-cart-row {
+        margin-top: 0;
+    }
+    .dropdown-cart .lnk-cart {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        padding: 12px 15px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .dropdown-cart .basket {
+        display: flex !important;
+        align-items: center;
+    }
+    .dropdown-cart .basket-item-count {
+        background: #10b981 !important;
+        font-size: 12px !important;
+        font-weight: bold;
+        position: static !important;
+        margin-right: 12px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .dropdown-cart .total-price-basket {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    .dropdown-cart .total-price-basket .lbl {
+        color: #718096 !important;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .dropdown-cart .total-price-basket .value {
+        color: #1a202c !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+    }
+    
+    /* 5. Navbar Toggle */
+    .header-nav {
+        background: #059669 !important; /* Slightly darker green for nav */
+    }
+    .navbar-default .navbar-toggle {
+        border: 1px solid rgba(255,255,255,0.3) !important;
+        border-radius: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ffffff !important;
+    }
+    
+    /* 6. Sidebar Categories Widget (Yellow block) */
+    .side-menu .nav .menu-header {
+        background: #10b981 !important; /* Change from yellow to theme green */
+        color: #fff !important;
+        border-radius: 8px 8px 0 0;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        padding: 15px 20px !important;
+    }
+    .side-menu .nav > li {
+        border-left: 1px solid #e2e8f0;
+        border-right: 1px solid #e2e8f0;
+    }
+    .side-menu .nav > li:last-child {
+        border-bottom: 1px solid #e2e8f0;
+        border-radius: 0 0 8px 8px;
+    }
+}
