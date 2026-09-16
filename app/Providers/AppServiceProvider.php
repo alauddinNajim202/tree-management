@@ -25,5 +25,11 @@ class AppServiceProvider extends ServiceProvider
             
         });
 
+        \Illuminate\Support\Facades\View::composer('frontend.pages.home', function ($view) {
+            $homeCategories = \App\Models\Category::where('status', 1)->orderBy('name')->get();
+            $view->with('homeCategories', $homeCategories);
+            
+        });
+
     }
 }

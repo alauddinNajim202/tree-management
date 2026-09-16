@@ -9,12 +9,25 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.home');
+        $homeCategories = \App\Models\Category::parents()->with('children')->where('status', 1)->orderBy('name')->get();
+        $products = \App\Models\Product::where('status', 1)->orderBy('name')->get();
+        return view('frontend.pages.home', compact('homeCategories', 'products'));
     }
 
-    public function detail()
+    public function productDetail($slug)
     {
-        return view('frontend.pages.detail');
+        $product = \App\Models\Product::where('slug', $slug)->firstOrFail();
+        $relatedProducts = \App\Models\Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->where('status', 1)
+            ->take(6)
+            ->get();
+        $hotDeals = \App\Models\Product::where('is_featured', 1)
+            ->where('status', 1)
+            ->take(3)
+            ->get();
+            
+        return view('frontend.pages.detail', compact('product', 'relatedProducts', 'hotDeals'));
     }
 
     public function shoppingCart()

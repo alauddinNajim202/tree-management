@@ -19,7 +19,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/category', [\App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
 
-Route::get('/detail', [\App\Http\Controllers\Web\HomeController::class, 'detail'])->name('detail');
+Route::get('/product/{slug}', [\App\Http\Controllers\Web\HomeController::class, 'productDetail'])->name('product.detail');
 Route::get('/shopping-cart', [\App\Http\Controllers\Web\HomeController::class, 'shoppingCart'])->name('shopping-cart');
 Route::get('/checkout', [\App\Http\Controllers\Web\HomeController::class, 'checkout'])->name('checkout');
 

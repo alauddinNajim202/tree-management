@@ -190,10 +190,10 @@
                 <div class="cart-item product-summary">
                   <div class="row">
                     <div class="col-xs-4">
-                      <div class="image"> <a href="{{ route('detail') }}"><img src="{{ asset('assets/images/products/p4.jpg') }}" alt=""></a> </div>
+                      <div class="image"> <a href="{{ route('product.detail', 1) }}"><img src="{{ asset('assets/images/products/p4.jpg') }}" alt=""></a> </div>
                     </div>
                     <div class="col-xs-7">
-                      <h3 class="name"><a href="{{ route('detail') }}">Simple Product</a></h3>
+                      <h3 class="name"><a href="{{ route('product.detail', 1) }}">Simple Product</a></h3>
                       <div class="price">$600.00</div>
                     </div>
                     <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
@@ -398,7 +398,7 @@
                             <ul class="links">
                               <li><a href="{{ route('home') }}">Home</a></li>
                               <li><a href="{{ route('category') }}">Category</a></li>
-                              <li><a href="{{ route('detail') }}">Detail</a></li>
+                              <li><a href="{{ route('product.detail', 1) }}">Detail</a></li>
                               <li><a href="{{ route('shopping-cart') }}">Shopping Cart Summary</a></li>
                               <li><a href="{{ route('checkout') }}">Checkout</a></li>
                               <li><a href="{{ route('blog') }}">Blog</a></li>
