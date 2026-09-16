@@ -71,13 +71,13 @@ class ProductController extends Controller
         $data['is_featured'] = $request->has('is_featured') ? 1 : 0;
 
         if ($request->hasFile('thumbnail')) {
-            $path = public_path('uploads/products');
+            $path = storage_path('app/public/uploads/products');
             if (!\Illuminate\Support\Facades\File::exists($path)) {
                 \Illuminate\Support\Facades\File::makeDirectory($path, 0775, true);
             }
             $imageName = time() . '.' . $request->thumbnail->extension();
             $request->thumbnail->move($path, $imageName);
-            $data['thumbnail'] = 'uploads/products/' . $imageName;
+            $data['thumbnail'] = 'storage/uploads/products/' . $imageName;
         }
 
         Product::create($data);
@@ -107,13 +107,13 @@ class ProductController extends Controller
         $data['is_featured'] = $request->has('is_featured') ? 1 : 0;
 
         if ($request->hasFile('thumbnail')) {
-            $path = public_path('uploads/products');
+            $path = storage_path('app/public/uploads/products');
             if (!\Illuminate\Support\Facades\File::exists($path)) {
                 \Illuminate\Support\Facades\File::makeDirectory($path, 0775, true);
             }
             $imageName = time() . '.' . $request->thumbnail->extension();
             $request->thumbnail->move($path, $imageName);
-            $data['thumbnail'] = 'uploads/products/' . $imageName;
+            $data['thumbnail'] = 'storage/uploads/products/' . $imageName;
         }
 
         $product->update($data);

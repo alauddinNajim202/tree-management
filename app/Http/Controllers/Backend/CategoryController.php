@@ -69,13 +69,13 @@ class CategoryController extends Controller
         $data['parent_id'] = $request->parent_id ?: null;
 
         if ($request->hasFile('image')) {
-            $path = public_path('uploads/categories');
+            $path = storage_path('app/public/uploads/categories');
             if (!\Illuminate\Support\Facades\File::exists($path)) {
                 \Illuminate\Support\Facades\File::makeDirectory($path, 0775, true);
             }
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move($path, $imageName);
-            $data['image'] = 'uploads/categories/' . $imageName;
+            $data['image'] = 'storage/uploads/categories/' . $imageName;
         }
 
         Category::create($data);
@@ -108,13 +108,13 @@ class CategoryController extends Controller
         $data['parent_id'] = $request->parent_id ?: null;
 
         if ($request->hasFile('image')) {
-            $path = public_path('uploads/categories');
+            $path = storage_path('app/public/uploads/categories');
             if (!\Illuminate\Support\Facades\File::exists($path)) {
                 \Illuminate\Support\Facades\File::makeDirectory($path, 0775, true);
             }
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move($path, $imageName);
-            $data['image'] = 'uploads/categories/' . $imageName;
+            $data['image'] = 'storage/uploads/categories/' . $imageName;
         }
 
         $category->update($data);
