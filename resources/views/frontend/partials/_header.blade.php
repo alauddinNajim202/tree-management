@@ -203,36 +203,50 @@
         
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 animate-dropdown top-cart-row"> 
           <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-          
+          @php
+              $cart = session()->get('cart', []);
+              $cartTotal = 0;
+              foreach($cart as $item) {
+                  $cartTotal += $item['price'] * $item['quantity'];
+              }
+          @endphp
           <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
             <div class="items-cart-inner">
               <div class="basket">
-              <div class="basket-item-count"><span class="count">2</span></div>
-              <div class="total-price-basket"> <span class="lbl">Shopping Cart</span> <span class="value">$4580</span> </div>
+              <div class="basket-item-count"><span class="count">{{ count($cart) }}</span></div>
+              <div class="total-price-basket"> <span class="lbl">Shopping Cart</span> <span class="value">${{ number_format($cartTotal, 2) }}</span> </div>
               </div>
             </div>
             </a>
             <ul class="dropdown-menu">
               <li>
-                <div class="cart-item product-summary">
-                  <div class="row">
-                    <div class="col-xs-4">
-                      <div class="image"> <a href="{{ route('product.detail', 1) }}"><img src="{{ asset('assets/images/products/p4.jpg') }}" alt=""></a> </div>
+                @if(count($cart) > 0)
+                  @foreach($cart as $id => $item)
+                  <div class="cart-item product-summary">
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <div class="image"> <a href="{{ route('product.detail', $item['slug']) }}"><img src="{{ asset($item['image']) }}" alt=""></a> </div>
+                      </div>
+                      <div class="col-xs-7">
+                        <h3 class="name"><a href="{{ route('product.detail', $item['slug']) }}">{{ $item['name'] }}</a></h3>
+                        <div class="price">${{ number_format($item['price'], 2) }} x {{ $item['quantity'] }}</div>
+                      </div>
+                      <div class="col-xs-1 action"> <a href="{{ route('cart.remove', $id) }}"><i class="fa fa-trash"></i></a> </div>
                     </div>
-                    <div class="col-xs-7">
-                      <h3 class="name"><a href="{{ route('product.detail', 1) }}">Simple Product</a></h3>
-                      <div class="price">$600.00</div>
-                    </div>
-                    <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
                   </div>
-                </div>
-                <!-- /.cart-item -->
-                <div class="clearfix"></div>
-                <hr>
-                <div class="clearfix cart-total">
-                  <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
+                  <!-- /.cart-item -->
                   <div class="clearfix"></div>
-                  <a href="{{ route('checkout') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
+                  <hr>
+                  @endforeach
+                  <div class="clearfix cart-total">
+                    <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>${{ number_format($cartTotal, 2) }}</span> </div>
+                    <div class="clearfix"></div>
+                    <a href="{{ route('cart') }}" class="btn btn-upper btn-primary btn-block m-t-20">View Cart</a>
+                    <a href="{{ route('checkout') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> 
+                  </div>
+                @else
+                  <div class="text-center p-3" style="padding: 15px;">Your cart is empty!</div>
+                @endif
                 <!-- /.cart-total--> 
                 
               </li>

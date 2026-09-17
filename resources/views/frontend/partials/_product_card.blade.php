@@ -41,10 +41,13 @@
                 <div class="action">
                     <ul class="list-unstyled">
                         <li class="add-cart-button btn-group">
-                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> 
-                                <i class="fa fa-shopping-cart"></i> 
-                            </button>
-                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST" style="display: inline-block; margin: 0;">
+                                @csrf
+                                <button class="btn btn-primary icon" type="submit"> 
+                                    <i class="fa fa-shopping-cart"></i> 
+                                </button>
+                                <button class="btn btn-primary cart-btn" type="submit">Add to cart</button>
+                            </form>
                         </li>
                         <li class="lnk wishlist"> 
                             <a class="add-to-cart" href="#" title="Wishlist"> 

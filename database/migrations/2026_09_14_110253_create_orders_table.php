@@ -19,7 +19,13 @@ return new class extends Migration
             $table->string('payment_method')->default('cod');
             $table->string('payment_status')->default('pending');
             $table->string('order_status')->default('pending');
-            $table->text('shipping_address');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('shipping_address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip_code')->nullable();
             $table->timestamps();
         });
     }

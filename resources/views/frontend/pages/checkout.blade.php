@@ -15,191 +15,94 @@
 <div class="body-content">
 	<div class="container">
 		<div class="checkout-box ">
-			<div class="row">
-				<div class="col-xs-12 col-sm-9 col-md-9 rht-col">
-					<div class="panel-group checkout-steps" id="accordion">
-						<!-- checkout-step-01  -->
-<div class="panel panel-default checkout-step-01">
-
-	<!-- panel-heading -->
-		<div class="panel-heading">
-    	<h4 class="unicase-checkout-title">
-	        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne">
-	          <span>1</span>Checkout Method
-	        </a>
-	     </h4>
-    </div>
-    <!-- panel-heading -->
-
-	<div id="collapseOne" class="panel-collapse collapse in">
-
-		<!-- panel-body  -->
-	    <div class="panel-body">
-			<div class="row">		
-
-				<!-- guest-login -->			
-				<div class="col-md-6 col-sm-6 guest-login">
-					<h4 class="checkout-subtitle">Guest or Register Login</h4>
-					<p class="text title-tag-line">Register with us for future convenience:</p>
-
-					<!-- radio-form  -->
-					<form class="register-form" role="form">
-					    <div class="radio radio-checkout-unicase">  
-					        <input id="guest" type="radio" name="text" value="guest" checked>  
-					        <label class="radio-button guest-check" for="guest">Checkout as Guest</label>  
-					          <br>
-					        <input id="register" type="radio" name="text" value="register">  
-					        <label class="radio-button" for="register">Register</label>  
-					    </div>  
-					</form>
-					<!-- radio-form  -->
-
-					<h4 class="checkout-subtitle outer-top-vs">Register and save time</h4>
-					<p class="text title-tag-line ">Register with us for future convenience:</p>
-					
-					<ul class="text instruction inner-bottom-30">
-						<li class="save-time-reg">- Fast and easy check out</li>
-						<li>- Easy access to your order history and status</li>
-					</ul>
-
-					<button type="submit" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Continue</button>
-				</div>
-				<!-- guest-login -->
-
-				<!-- already-registered-login -->
-				<div class="col-md-6 col-sm-6 already-registered-login">
-					<h4 class="checkout-subtitle">Already registered?</h4>
-					<p class="text title-tag-line">Please log in below:</p>
-					<form class="register-form" role="form">
-						<div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-					    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="">
-					  </div>
-					  <div class="form-group">
-					    <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
-					    <input type="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="">
-					    <a href="#" class="forgot-password">Forgot your Password?</a>
-					  </div>
-					  <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
-					</form>
-				</div>	
-				<!-- already-registered-login -->		
-
-			</div>			
-		</div>
-		<!-- panel-body  -->
-
-	</div><!-- row -->
-</div>
-<!-- checkout-step-01  -->
-					    <!-- checkout-step-02  -->
-					  	<div class="panel panel-default checkout-step-02">
-						    <div class="panel-heading">
-						      <h4 class="unicase-checkout-title">
-						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
-						          <span>2</span>Billing Information
-						        </a>
-						      </h4>
-						    </div>
-						    <div id="collapseTwo" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						      </div>
-						    </div>
-					  	</div>
-					  	<!-- checkout-step-02  -->
-
-						<!-- checkout-step-03  -->
-					  	<div class="panel panel-default checkout-step-03">
-						    <div class="panel-heading">
-						      <h4 class="unicase-checkout-title">
-						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseThree">
-						       		<span>3</span>Shipping Information
-						        </a>
-						      </h4>
-						    </div>
-						    <div id="collapseThree" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						      </div>
-						    </div>
-					  	</div>
-					  	<!-- checkout-step-03  -->
-
-						<!-- checkout-step-04  -->
-					    <div class="panel panel-default checkout-step-04">
-						    <div class="panel-heading">
-						      <h4 class="unicase-checkout-title">
-						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFour">
-						        	<span>4</span>Shipping Method
-						        </a>
-						      </h4>
-						    </div>
-						    <div id="collapseFour" class="panel-collapse collapse">
-							    <div class="panel-body">
-							     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							    </div>
-					    	</div>
+			<form action="{{ route('checkout.store') }}" method="POST">
+				@csrf
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 rht-col">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="unicase-checkout-title">Billing & Shipping Information</h4>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 form-group">
+										<label>First Name <span>*</span></label>
+										<input type="text" name="first_name" class="form-control" value="{{ Auth::check() ? explode(' ', Auth::user()->name)[0] : old('first_name') }}" required>
+									</div>
+									<div class="col-md-6 form-group">
+										<label>Last Name <span>*</span></label>
+										<input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}" required>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 form-group">
+										<label>Email Address <span>*</span></label>
+										<input type="email" name="email" class="form-control" value="{{ Auth::check() ? Auth::user()->email : old('email') }}" required>
+									</div>
+									<div class="col-md-6 form-group">
+										<label>Phone Number <span>*</span></label>
+										<input type="text" name="phone" class="form-control" value="{{ old('phone') }}" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Address <span>*</span></label>
+									<textarea name="address" class="form-control" rows="3" required>{{ old('address') }}</textarea>
+								</div>
+								<div class="row">
+									<div class="col-md-6 form-group">
+										<label>Town / City <span>*</span></label>
+										<input type="text" name="city" class="form-control" value="{{ old('city') }}" required>
+									</div>
+									<div class="col-md-6 form-group">
+										<label>Postcode / ZIP <span>*</span></label>
+										<input type="text" name="zip_code" class="form-control" value="{{ old('zip_code') }}" required>
+									</div>
+								</div>
+							</div>
 						</div>
-						<!-- checkout-step-04  -->
-
-						<!-- checkout-step-05  -->
-					  	<div class="panel panel-default checkout-step-05">
-						    <div class="panel-heading">
-						      <h4 class="unicase-checkout-title">
-						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFive">
-						        	<span>5</span>Payment Information
-						        </a>
-						      </h4>
-						    </div>
-						    <div id="collapseFive" class="panel-collapse collapse">
-						      <div class="panel-body">
-						       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						      </div>
-						    </div>
-					    </div>
-					    <!-- checkout-step-05  -->
-
-						<!-- checkout-step-06  -->
-					  	<div class="panel panel-default checkout-step-06">
-						    <div class="panel-heading">
-						      <h4 class="unicase-checkout-title">
-						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
-						        	<span>6</span>Order Review
-						        </a>
-						      </h4>
-						    </div>
-					    	<div id="collapseSix" class="panel-collapse collapse">
-					      		<div class="panel-body">
-					        		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					      		</div>
-					    	</div>
-					  	</div>
-					  	<!-- checkout-step-06  -->
-					  	
-					</div><!-- /.checkout-steps -->
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 sidebar">
-					<!-- checkout-progress-sidebar -->
-<div class="checkout-progress-sidebar ">
-	<div class="panel-group">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-		    	<h4 class="unicase-checkout-title">Your Checkout Progress</h4>
-		    </div>
-		    <div class="">
-				<ul class="nav nav-checkout-progress list-unstyled">
-					<li><a href="#">Billing Address</a></li>
-					<li><a href="#">Shipping Address</a></li>
-					<li><a href="#">Shipping Method</a></li>
-					<li><a href="#">Payment Method</a></li>
-				</ul>		
-			</div>
-		</div>
-	</div>
-</div> 
-<!-- checkout-progress-sidebar -->				</div>
-			</div><!-- /.row -->
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<!-- checkout-progress-sidebar -->
+						<div class="checkout-progress-sidebar ">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="unicase-checkout-title">Your Order</h4>
+									</div>
+									<div class="panel-body">
+										<ul class="nav nav-checkout-progress list-unstyled">
+											@if(isset($cart) && count($cart) > 0)
+												@foreach($cart as $item)
+												<li style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
+													<strong>{{ $item['name'] }}</strong> x {{ $item['quantity'] }}
+													<span class="pull-right">${{ number_format($item['price'] * $item['quantity'], 2) }}</span>
+												</li>
+												@endforeach
+											@endif
+											<li style="margin-top: 20px; font-size: 18px; font-weight: bold; color: #158cba;">
+												Order Total:
+												<span class="pull-right">${{ isset($total) ? number_format($total, 2) : '0.00' }}</span>
+											</li>
+										</ul>
+										<hr>
+										<div class="form-group">
+											<div class="radio">
+												<label>
+													<input type="radio" name="payment_method" value="cod" checked>
+													Cash on Delivery
+												</label>
+											</div>
+											<p class="text-muted" style="font-size: 12px; margin-left: 20px;">Pay with cash upon delivery.</p>
+										</div>
+										<button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">PLACE ORDER</button>
+									</div>
+								</div>
+							</div>
+						</div> 
+						<!-- checkout-progress-sidebar -->
+					</div>
+				</div><!-- /.row -->
+			</form>
 		</div><!-- /.checkout-box -->
 		<!-- ============================================== BRANDS CAROUSEL ============================================== -->
 <div id="brands-carousel" class="logo-slider wow fadeInUp">

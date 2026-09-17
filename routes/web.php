@@ -9,6 +9,17 @@ Route::get('/dashboard', [\App\Http\Controllers\Web\HomeController::class, 'dash
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+// Cart Routes
+Route::get('/cart', [\App\Http\Controllers\Web\CartController::class, 'viewCart'])->name('cart');
+Route::post('/cart/add/{id}', [\App\Http\Controllers\Web\CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/update', [\App\Http\Controllers\Web\CartController::class, 'updateCart'])->name('cart.update');
+Route::get('/cart/remove/{id}', [\App\Http\Controllers\Web\CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/cart/clear', [\App\Http\Controllers\Web\CartController::class, 'clearCart'])->name('cart.clear');
+
+// Checkout Routes
+Route::get('/checkout', [\App\Http\Controllers\Web\CheckoutController::class, 'index'])->name('checkout');
+Route::post('/checkout', [\App\Http\Controllers\Web\CheckoutController::class, 'store'])->name('checkout.store');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -32,80 +32,45 @@
 			</thead><!-- /thead -->
 			
 			<tbody>
-				<tr>
-					<td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
-					<td class="cart-image">
-						<a class="entry-thumbnail" href="detail.html">
-						    <img src=\"{{ asset('assets/images/products/p1.jpg') }}\" alt="">
-						</a>
-					</td>
-					<td class="cart-product-name-info">
-						<h4 class='cart-product-description'><a href="detail.html">Floral Print Buttoned</a></h4>
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="rating rateit-small"></div>
+				@if(isset($cart) && count($cart) > 0)
+					@foreach($cart as $id => $item)
+					<tr>
+						<td class="romove-item"><a href="{{ route('cart.remove', $id) }}" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
+						<td class="cart-image">
+							<a class="entry-thumbnail" href="{{ route('product.detail', $item['slug']) }}">
+							    <img src="{{ asset($item['image']) }}" alt="">
+							</a>
+						</td>
+						<td class="cart-product-name-info">
+							<h4 class='cart-product-description'><a href="{{ route('product.detail', $item['slug']) }}">{{ $item['name'] }}</a></h4>
+							<div class="cart-product-info">
+								<span class="product-color">Price:<span>${{ number_format($item['price'], 2) }}</span></span>
 							</div>
-							<div class="col-sm-12">
-								<div class="reviews">
-									(06 Reviews)
-								</div>
-							</div>
-						</div><!-- /.row -->
-						<div class="cart-product-info">
-											<span class="product-color">COLOR:<span>Blue</span></span>
-						</div>
-					</td>
-					<td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
-					<td class="cart-product-quantity">
-						<div class="quant-input">
-				                <div class="arrows">
-				                  <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-				                  <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-				                </div>
-				                <input type="text" value="1">
-			              </div>
-		            </td>
-					<td class="cart-product-sub-total"><span class="cart-sub-total-price">$300.00</span></td>
-					<td class="cart-product-grand-total"><span class="cart-grand-total-price">$300.00</span></td>
-				</tr>
-				<tr>
-					<td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
-					<td class="cart-image">
-						<a class="entry-thumbnail" href="detail.html">
-						    <img src=\"{{ asset('assets/images/products/p2.jpg') }}\" alt="">
-						</a>
-					</td>
-					<td class="cart-product-name-info">
-						<h4 class='cart-product-description'><a href="detail.html">Floral Print Buttoned</a></h4>
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="rating rateit-small"></div>
-							</div>
-							<div class="col-sm-12">
-								<div class="reviews">
-									(06 Reviews)
-								</div>
-							</div>
-						</div><!-- /.row -->
-						<div class="cart-product-info">
-						<span class="product-color">COLOR:<span>Pink</span></span>
-						</div>
-					</td>
-					<td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
-					<td class="cart-product-quantity">
-						<div class="cart-quantity">
-							<div class="quant-input">
-				                <div class="arrows">
-				                  <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-				                  <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-				                </div>
-				                <input type="text" value="1">
-			              </div>
-			            </div>
-		            </td>
-					<td class="cart-product-sub-total"><span class="cart-sub-total-price">$300.00</span></td>
-					<td class="cart-product-grand-total"><span class="cart-grand-total-price">$300.00</span></td>
-				</tr>
+						</td>
+						<td class="cart-product-edit"></td>
+						<td class="cart-product-quantity">
+							<form action="{{ route('cart.update') }}" method="POST" class="form-inline">
+								@csrf
+								<input type="hidden" name="id" value="{{ $id }}">
+								<div class="cart-quantity">
+									<div class="quant-input">
+						                <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" style="width: 70px; padding: 5px;">
+					              	</div>
+					            </div>
+								<button type="submit" class="btn btn-primary btn-sm" style="margin-top: 5px;"><i class="fa fa-refresh"></i></button>
+							</form>
+			            </td>
+						<td class="cart-product-sub-total"><span class="cart-sub-total-price">${{ number_format($item['price'] * $item['quantity'], 2) }}</span></td>
+						<td class="cart-product-grand-total"><span class="cart-grand-total-price">${{ number_format($item['price'] * $item['quantity'], 2) }}</span></td>
+					</tr>
+					@endforeach
+				@else
+					<tr>
+						<td colspan="7" class="text-center" style="padding: 30px;">
+							<h4>Your shopping cart is empty!</h4>
+						</td>
+					</tr>
+				@endif
 			</tbody><!-- /tbody -->
             
             <tfoot>
@@ -201,10 +166,10 @@
 			<tr>
 				<th>
 					<div class="cart-sub-total">
-						Subtotal<span class="inner-left-md">$600.00</span>
+						Subtotal<span class="inner-left-md">${{ isset($total) ? number_format($total, 2) : '0.00' }}</span>
 					</div>
 					<div class="cart-grand-total">
-						Grand Total<span class="inner-left-md">$600.00</span>
+						Grand Total<span class="inner-left-md">${{ isset($total) ? number_format($total, 2) : '0.00' }}</span>
 					</div>
 				</th>
 			</tr>
@@ -213,8 +178,7 @@
 				<tr>
 					<td>
 						<div class="cart-checkout-btn pull-right">
-							<button type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
-							<span class="">Checkout with multiples address!</span>
+							<a href="{{ route('checkout') }}" class="btn btn-primary checkout-btn">PROCEED TO CHECKOUT</a>
 						</div>
 					</td>
 				</tr>

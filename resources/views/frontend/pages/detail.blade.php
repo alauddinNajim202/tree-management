@@ -290,8 +290,10 @@
                                                 </div>
 
                                                 <div class="add-btn">
-                                                    <a href="#" class="btn btn-primary"><i
-                                                            class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                                    <form action="{{ route('cart.add', $product->id) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
+                                                    </form>
                                                 </div>
 
 
