@@ -29,7 +29,7 @@ Route::get('/contact', [\App\Http\Controllers\Web\HomeController::class, 'contac
 Route::get('/faq', [\App\Http\Controllers\Web\HomeController::class, 'faq'])->name('faq');
 Route::get('/my-wishlist', [\App\Http\Controllers\Web\HomeController::class, 'myWishlist'])->name('my-wishlist');
 Route::get('/product-comparison', [\App\Http\Controllers\Web\HomeController::class, 'productComparison'])->name('product-comparison');
-Route::get('/sign-in', [\App\Http\Controllers\Web\HomeController::class, 'signIn'])->name('sign-in');
+
 Route::get('/terms-conditions', [\App\Http\Controllers\Web\HomeController::class, 'termsConditions'])->name('terms-conditions');
 Route::get('/track-orders', [\App\Http\Controllers\Web\HomeController::class, 'trackOrders'])->name('track-orders');
 Route::get('/404', [\App\Http\Controllers\Web\HomeController::class, 'notFound'])->name('404');

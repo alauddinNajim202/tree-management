@@ -73,10 +73,21 @@
     <i class="fa fa-th-large"></i>
     <span>SHOP</span>
   </a>
-  <a href="{{ route('sign-in') }}" class="mobile-bottom-nav-item">
-    <i class="fa fa-user-circle"></i>
-    <span>ACCOUNT</span>
-  </a>
+  @guest
+    <a href="{{ route('login') }}" class="mobile-bottom-nav-item">
+      <div class="mobile-bottom-nav-item-content">
+        <i class="icon fa fa-user"></i>
+        <span>Account</span>
+      </div>
+    </a>
+  @else
+    <a href="{{ route('dashboard') }}" class="mobile-bottom-nav-item">
+      <div class="mobile-bottom-nav-item-content">
+        <i class="icon fa fa-user"></i>
+        <span>Account</span>
+      </div>
+    </a>
+  @endguest
   <a href="{{ route('shopping-cart') }}" class="mobile-bottom-nav-item mobile-bottom-nav-center">
     <i class="fa fa-shopping-bag"></i>
     <span class="mobile-cart-badge">2</span>
@@ -99,11 +110,24 @@
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li class="myaccount"><a href="{{ route('dashboard') }}"><span>My Account</span></a></li>
+            @auth
+              <li class="myaccount"><a href="{{ route('dashboard') }}"><span>My Account</span></a></li>
+            @endauth
             <li class="wishlist"><a href="{{ route('my-wishlist') }}"><span>Wishlist</span></a></li>
             <li class="header_cart hidden-xs"><a href="{{ route('shopping-cart') }}"><span>My Cart</span></a></li>
             <li class="check"><a href="{{ route('checkout') }}"><span>Checkout</span></a></li>
-            <li class="login"><a href="{{ route('sign-in') }}"><span>Login</span></a></li>
+            @guest
+              <li class="login"><a href="{{ route('login') }}"><span>Login / Register</span></a></li>
+            @else
+              <li class="login">
+                <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
+                    @csrf
+                </form>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <span>Logout</span>
+                </a>
+              </li>
+            @endguest
           </ul>
         </div>
         <!-- /.cnt-account -->
@@ -404,8 +428,11 @@
                               <li><a href="{{ route('blog') }}">Blog</a></li>
                               <li><a href="{{ route('blog-details') }}">Blog Detail</a></li>
                               <li><a href="{{ route('contact') }}">Contact</a></li>
-                              <li><a href="{{ route('sign-in') }}">Sign In</a></li>
-                              <li><a href="{{ route('my-wishlist') }}">Wishlist</a></li>
+                              @guest
+                              <li><a href="{{ route('login') }}">Login / Register</a></li>
+                              @else
+                              <li><a href="{{ route('dashboard') }}">My Account</a></li>
+                              @endguest                              <li><a href="{{ route('my-wishlist') }}">Wishlist</a></li>
                               <li><a href="{{ route('terms-conditions') }}">Terms and Condition</a></li>
                               <li><a href="{{ route('track-orders') }}">Track Orders</a></li>
                               <li><a href="{{ route('product-comparison') }}">Product-Comparison</a></li>

@@ -70,10 +70,6 @@ class HomeController extends Controller
         return view('frontend.pages.product-comparison');
     }
 
-    public function signIn()
-    {
-        return view('frontend.pages.sign-in');
-    }
 
     public function termsConditions()
     {
