@@ -33,3 +33,4 @@ Route::get('/sign-in', [\App\Http\Controllers\Web\HomeController::class, 'signIn
 Route::get('/terms-conditions', [\App\Http\Controllers\Web\HomeController::class, 'termsConditions'])->name('terms-conditions');
 Route::get('/track-orders', [\App\Http\Controllers\Web\HomeController::class, 'trackOrders'])->name('track-orders');
 Route::get('/404', [\App\Http\Controllers\Web\HomeController::class, 'notFound'])->name('404');
+Route::post('/subscribe', [\App\Http\Controllers\Web\SubscriberController::class, 'store'])->name('subscribe');

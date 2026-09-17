@@ -16,6 +16,7 @@
     <li><a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
     
     <li class="menu-header">CMS</li>
+    <li class="{{ Route::is('admin.subscribers.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.subscribers.index') }}"><i class="fas fa-envelope"></i> <span>Subscribers</span></a></li>
     <li><a class="nav-link" href="#"><i class="fas fa-images"></i> <span>Sliders</span></a></li>
     <li><a class="nav-link" href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
     </ul>

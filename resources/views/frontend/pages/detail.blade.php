@@ -100,13 +100,14 @@
                             <h3 class="section-title">Newsletters</h3>
                             <div class="sidebar-widget-body outer-top-xs">
                                 <p>Sign Up for Our Newsletter!</p>
-                                <form>
+                                <form action="{{ route('subscribe') }}" method="POST">
+                                    @csrf
                                     <div class="form-group">
                                         <label class="sr-only" for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Subscribe to our newsletter">
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                            placeholder="Subscribe to our newsletter" required>
                                     </div>
-                                    <button class="btn btn-primary">Subscribe</button>
+                                    <button type="submit" class="btn btn-primary">Subscribe</button>
                                 </form>
                             </div><!-- /.sidebar-widget-body -->
                         </div><!-- /.sidebar-widget -->
@@ -493,9 +494,9 @@
                                     <h3 class="section-title">Upsell Products</h3>
                                     <div class="ad-imgs">
                                         <img class="img-responsive"
-                                            src=\"{{ asset('assets/images/banners/home-banner1.jpg') }}\" alt="">
+                                            src="{{ asset('assets/images/banners/home-banner1.jpg') }}" alt="">
                                         <img class="img-responsive"
-                                            src=\"{{ asset('assets/images/banners/home-banner2.jpg') }}\" alt="">
+                                            src="{{ asset('assets/images/banners/home-banner2.jpg') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-9">
@@ -509,7 +510,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href="detail.html"><img
-                                                                    src=\"{{ asset('assets/images/products/p1.jpg') }}\"
+                                                                    src="{{ asset('assets/images/products/p1.jpg') }}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
 
@@ -572,7 +573,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href="detail.html"><img
-                                                                    src=\"{{ asset('assets/images/products/p2.jpg') }}\"
+                                                                    src="{{ asset('assets/images/products/p2.jpg') }}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
 
@@ -635,7 +636,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href="detail.html"><img
-                                                                    src=\"{{ asset('assets/images/products/p3.jpg') }}\"
+                                                                    src="{{ asset('assets/images/products/p3.jpg') }}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
 
@@ -698,7 +699,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href="detail.html"><img
-                                                                    src=\"{{ asset('assets/images/products/p4.jpg') }}\"
+                                                                    src="{{ asset('assets/images/products/p4.jpg') }}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
 
@@ -761,8 +762,8 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href="detail.html"><img
-                                                                    src=\"{{ asset('assets/images/blank.gif') }}\"
-                                                                    data-echo=\"{{ asset('assets/images/products/p5.jpg') }}\"
+                                                                    src="{{ asset('assets/images/blank.gif') }}"
+                                                                    data-echo="{{ asset('assets/images/products/p5.jpg') }}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
 
@@ -906,71 +907,71 @@
                         <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
                             <div class="item m-t-15">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand1.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand1.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item m-t-10">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand2.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand2.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand3.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand3.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand4.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand4.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand5.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand5.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand6.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand6.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand2.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand2.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand4.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand4.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand1.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand1.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
 
                             <div class="item">
                                 <a href="#" class="image">
-                                    <img data-echo=\"{{ asset('assets/images/brands/brand5.png') }}\"
-                                        src=\"{{ asset('assets/images/blank.gif') }}\" alt="">
+                                    <img data-echo="{{ asset('assets/images/brands/brand5.png') }}"
+                                        src="{{ asset('assets/images/blank.gif') }}" alt="">
                                 </a>
                             </div><!--/.item-->
                         </div><!-- /.owl-carousel #logo-slider -->
