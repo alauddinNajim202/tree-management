@@ -8,6 +8,24 @@
     display: none !important;
 }
 
+/* ---- Top Bar Link Visibility Fix ---- */
+.top-bar {
+    background-color: #f8f8f8 !important; 
+    border-bottom: 1px solid #eaeaea;
+}
+.top-bar .cnt-account ul > li a, 
+.top-bar .cnt-block ul > li a,
+.top-bar .cnt-block ul li a .caret {
+    color: #555555 !important;
+}
+.top-bar .cnt-account ul > li a:hover,
+.top-bar .cnt-block ul > li a:hover {
+    color: #1A4D2E !important;
+}
+.top-bar .cnt-account ul > li {
+    border-right: 1px solid #ddd !important;
+}
+
 @media (max-width: 767px) {
 
     /* ---- Hide Original Desktop Header on Mobile ---- */
