@@ -117,7 +117,8 @@
             <li class="header_cart hidden-xs"><a href="{{ route('shopping-cart') }}"><span>My Cart</span></a></li>
             <li class="check"><a href="{{ route('checkout') }}"><span>Checkout</span></a></li>
             @guest
-              <li class="login"><a href="{{ route('login') }}"><span>Login / Register</span></a></li>
+              <li class="login"><a href="{{ route('login') }}"><i class="icon fa fa-sign-in"></i> <span>Login</span></a></li>
+              <li class="register"><a href="{{ route('register') }}"><i class="icon fa fa-user-plus"></i> <span>Register</span></a></li>
             @else
               <li class="login">
                 <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
@@ -429,7 +430,8 @@
                               <li><a href="{{ route('blog-details') }}">Blog Detail</a></li>
                               <li><a href="{{ route('contact') }}">Contact</a></li>
                               @guest
-                              <li><a href="{{ route('login') }}">Login / Register</a></li>
+                              <li><a href="{{ route('login') }}">Login</a></li>
+                              <li><a href="{{ route('register') }}">Register</a></li>
                               @else
                               <li><a href="{{ route('dashboard') }}">My Account</a></li>
                               @endguest                              <li><a href="{{ route('my-wishlist') }}">Wishlist</a></li>
