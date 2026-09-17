@@ -1,7 +1,7 @@
 @extends('frontend.app')
 
 @section('content')
-    <div class="body-content outer-top-vs" id="top-banner-and-menu">
+    <div class="body-content" id="top-banner-and-menu" style="padding-top: 20px;">
         <div class="container">
             <div class="row">
                 <!-- ============================================== SIDEBAR ============================================== -->
@@ -948,7 +948,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
                     <!-- ========================================== SECTION – HERO ========================================= -->
 
-                    <div id="hero">
+                    <div id="hero" class="hero-slider-modern">
                         <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
                             <div class="item" style="background-image: url(assets/images/sliders/01.jpg);">
                                 <div class="container-fluid">
@@ -971,7 +971,7 @@
                             <div class="item" style="background-image: url(assets/images/sliders/02.jpg);">
                                 <div class="container-fluid">
                                     <div class="caption bg-color vertical-center text-left">
-                                        <div class="slider-header fadeInDown-1">Spring 2018</div>
+                                        <div class="slider-header fadeInDown-1">Spring 2024</div>
                                         <div class="big-text fadeInDown-1"> Berry Plants Fashion </div>
                                         <div class="excerpt fadeInDown-2 hidden-xs"> <span>Nemo enim ipsam voluptatem quia
                                                 voluptas sit aspernatur aut odit aut fugit</span> </div>

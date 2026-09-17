@@ -16,7 +16,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('frontend.pages.profile', [
             'user' => $request->user(),
         ]);
     }
@@ -30,6 +30,20 @@ class ProfileController extends Controller
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+        }
+
+        // Handle avatar upload
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $filename = 'avatar_' . auth()->id() . '_' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/avatars'), $filename);
+
+            // Delete old avatar if exists
+            if ($request->user()->avatar && file_exists(public_path($request->user()->avatar))) {
+                unlink(public_path($request->user()->avatar));
+            }
+
+            $request->user()->avatar = 'uploads/avatars/' . $filename;
         }
 
         $request->user()->save();

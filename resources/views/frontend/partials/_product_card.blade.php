@@ -1,19 +1,18 @@
 <div class="item item-carousel">
     <div class="products">
-        <div class="product">
+        <div class="modern-card">
             <div class="product-image">
                 <div class="image">
                     <a href="{{ route('product.detail', $product->slug) }}">
                         <img src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}">
-                        <img src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}" class="hover-image">
                     </a>
                 </div>
                 <!-- /.image -->
 
                 @if($product->is_featured)
-                    <div class="tag hot"><span>hot</span></div>
+                    <div class="modern-badge hot"><span>hot</span></div>
                 @else
-                    <div class="tag new"><span>new</span></div>
+                    <div class="modern-badge new"><span>new</span></div>
                 @endif
             </div>
             <!-- /.product-image -->
