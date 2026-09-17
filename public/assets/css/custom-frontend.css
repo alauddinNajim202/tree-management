@@ -26,6 +26,18 @@
     border-right: 1px solid #ddd !important;
 }
 
+/* ---- Main Header Height Fix ---- */
+.main-header {
+    padding: 12px 0 15px 0 !important;
+}
+.main-header .logo-holder,
+.main-header .top-cart-row {
+    margin-top: 0px !important;
+}
+.main-header .top-search-holder .search-area {
+    margin-top: 4px !important;
+}
+
 @media (max-width: 767px) {
 
     /* ---- Hide Original Desktop Header on Mobile ---- */
