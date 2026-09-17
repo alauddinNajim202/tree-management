@@ -34,11 +34,12 @@
 			<tbody>
 				@if(isset($cart) && count($cart) > 0)
 					@foreach($cart as $id => $item)
+					{{-- @dd($item) --}}
 					<tr>
 						<td class="romove-item"><a href="{{ route('cart.remove', $id) }}" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
 						<td class="cart-image">
 							<a class="entry-thumbnail" href="{{ route('product.detail', $item['slug']) }}">
-							    <img src="{{ asset($item['image']) }}" alt="">
+							    <img src="{{ asset(($item['image'])) }}" alt="">
 							</a>
 						</td>
 						<td class="cart-product-name-info">

@@ -116,6 +116,7 @@
             <li class="wishlist"><a href="{{ route('my-wishlist') }}"><span>Wishlist</span></a></li>
             <li class="header_cart hidden-xs"><a href="{{ route('shopping-cart') }}"><span>My Cart</span></a></li>
             <li class="check"><a href="{{ route('checkout') }}"><span>Checkout</span></a></li>
+            <li><a href="{{ route('track-orders') }}"><span>Track Orders</span></a></li>
             @guest
               <li class="login"><a href="{{ route('login') }}"><i class="icon fa fa-sign-in"></i> <span>Login</span></a></li>
               <li class="register"><a href="{{ route('register') }}"><i class="icon fa fa-user-plus"></i> <span>Register</span></a></li>

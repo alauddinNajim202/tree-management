@@ -24,6 +24,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/subscribers', [\App\Http\Controllers\Backend\SubscriberController::class, 'index'])->name('admin.subscribers');
+        Route::delete('/subscribers/{id}', [\App\Http\Controllers\Backend\SubscriberController::class, 'destroy'])->name('admin.subscribers.destroy');
+
+        // Admin Orders
+        Route::get('/orders', [\App\Http\Controllers\Backend\OrderController::class, 'index'])->name('admin.orders');
+        Route::get('/orders/{id}', [\App\Http\Controllers\Backend\OrderController::class, 'show'])->name('admin.orders.show');
+        Route::post('/orders/{id}/status', [\App\Http\Controllers\Backend\OrderController::class, 'updateStatus'])->name('admin.orders.status');
+    });
 });
 
 require __DIR__.'/auth.php';
@@ -42,6 +52,7 @@ Route::get('/my-wishlist', [\App\Http\Controllers\Web\HomeController::class, 'my
 Route::get('/product-comparison', [\App\Http\Controllers\Web\HomeController::class, 'productComparison'])->name('product-comparison');
 
 Route::get('/terms-conditions', [\App\Http\Controllers\Web\HomeController::class, 'termsConditions'])->name('terms-conditions');
-Route::get('/track-orders', [\App\Http\Controllers\Web\HomeController::class, 'trackOrders'])->name('track-orders');
+Route::get('/track-orders', [\App\Http\Controllers\Web\TrackOrderController::class, 'index'])->name('track-orders');
+Route::post('/track-orders', [\App\Http\Controllers\Web\TrackOrderController::class, 'track'])->name('track-orders.post');
 Route::get('/404', [\App\Http\Controllers\Web\HomeController::class, 'notFound'])->name('404');
 Route::post('/subscribe', [\App\Http\Controllers\Web\SubscriberController::class, 'store'])->name('subscribe');
