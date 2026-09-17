@@ -152,6 +152,8 @@
           </ul>
           <!-- /.list-unstyled --> 
         </div>
+
+        
         <!-- /.cnt-cart -->
         <div class="clearfix"></div>
       </div>

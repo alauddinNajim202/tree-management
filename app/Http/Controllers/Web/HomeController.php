@@ -81,6 +81,11 @@ class HomeController extends Controller
         return view('frontend.pages.track-orders');
     }
 
+    public function dashboard()
+    {
+        return view('frontend.pages.dashboard');
+    }
+
     public function notFound()
     {
         return view('frontend.pages.404');
