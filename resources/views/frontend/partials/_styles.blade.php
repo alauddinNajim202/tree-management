@@ -21,3 +21,4 @@
 
 <!-- Custom Frontend Styling & Mobile Enhancements -->
 <link rel="stylesheet" href="{{ asset('assets/css/custom-frontend.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
