@@ -242,7 +242,7 @@
                   <div class="clearfix cart-total">
                     <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>${{ number_format($cartTotal, 2) }}</span> </div>
                     <div class="clearfix"></div>
-                    <a href="{{ route('cart') }}" class="btn btn-upper btn-primary btn-block m-t-20">View Cart</a>
+                    <a href="{{ route('shopping-cart') }}" class="btn btn-upper btn-primary btn-block m-t-20">View Cart</a>
                     <a href="{{ route('checkout') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> 
                   </div>
                 @else

@@ -10,7 +10,7 @@ Route::get('/dashboard', [\App\Http\Controllers\Web\HomeController::class, 'dash
     ->name('dashboard');
 
 // Cart Routes
-Route::get('/cart', [\App\Http\Controllers\Web\CartController::class, 'viewCart'])->name('cart');
+Route::get('/cart', [\App\Http\Controllers\Web\CartController::class, 'viewCart'])->name('shopping-cart');
 Route::post('/cart/add/{id}', [\App\Http\Controllers\Web\CartController::class, 'addToCart'])->name('cart.add');
 Route::post('/cart/update', [\App\Http\Controllers\Web\CartController::class, 'updateCart'])->name('cart.update');
 Route::get('/cart/remove/{id}', [\App\Http\Controllers\Web\CartController::class, 'removeFromCart'])->name('cart.remove');
@@ -24,16 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::prefix('admin')->group(function () {
-        Route::get('/subscribers', [\App\Http\Controllers\Backend\SubscriberController::class, 'index'])->name('admin.subscribers');
-        Route::delete('/subscribers/{id}', [\App\Http\Controllers\Backend\SubscriberController::class, 'destroy'])->name('admin.subscribers.destroy');
-
-        // Admin Orders
-        Route::get('/orders', [\App\Http\Controllers\Backend\OrderController::class, 'index'])->name('admin.orders');
-        Route::get('/orders/{id}', [\App\Http\Controllers\Backend\OrderController::class, 'show'])->name('admin.orders.show');
-        Route::post('/orders/{id}/status', [\App\Http\Controllers\Backend\OrderController::class, 'updateStatus'])->name('admin.orders.status');
-    });
 });
 
 require __DIR__.'/auth.php';
@@ -41,8 +31,6 @@ require __DIR__.'/auth.php';
 Route::get('/category', [\App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
 
 Route::get('/product/{slug}', [\App\Http\Controllers\Web\HomeController::class, 'productDetail'])->name('product.detail');
-Route::get('/shopping-cart', [\App\Http\Controllers\Web\HomeController::class, 'shoppingCart'])->name('shopping-cart');
-Route::get('/checkout', [\App\Http\Controllers\Web\HomeController::class, 'checkout'])->name('checkout');
 
 Route::get('/blog', [\App\Http\Controllers\Web\HomeController::class, 'blog'])->name('blog');
 Route::get('/blog-details', [\App\Http\Controllers\Web\HomeController::class, 'blogDetails'])->name('blog-details');
