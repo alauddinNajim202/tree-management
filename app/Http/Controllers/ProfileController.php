@@ -39,11 +39,11 @@ class ProfileController extends Controller
             $file->move(public_path('uploads/avatars'), $filename);
 
             // Delete old avatar if exists
-            if ($request->user()->avatar && file_exists(public_path($request->user()->avatar))) {
-                unlink(public_path($request->user()->avatar));
+            if ($request->user()->image && file_exists(public_path($request->user()->image))) {
+                unlink(public_path($request->user()->image));
             }
 
-            $request->user()->avatar = 'uploads/avatars/' . $filename;
+            $request->user()->image = 'uploads/avatars/' . $filename;
         }
 
         $request->user()->save();

@@ -31,5 +31,12 @@ class AppServiceProvider extends ServiceProvider
             
         });
 
+        // Share settings globally
+        try {
+            $settings = \App\Models\Setting::pluck('value', 'key')->toArray();
+            \Illuminate\Support\Facades\View::share('settings', $settings);
+        } catch (\Exception $e) {
+            // Ignore when running migrations before the table exists
+        }
     }
 }

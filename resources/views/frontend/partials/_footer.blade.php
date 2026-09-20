@@ -13,18 +13,18 @@
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
-                  <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                  <p>{{ $settings['site_address'] ?? 'ThemesGround, 789 Main rd, Anytown, CA 12345 USA' }}</p>
                 </div>
               </li>
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
-                  <p> + (888) 123-4567 / + (888) 456-7890</p>
+                  <p>{{ $settings['site_phone'] ?? '+ (888) 123-4567 / + (888) 456-7890' }}</p>
                 </div>
               </li>
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                <div class="media-body"> <span><a href="#">marazzo@themesground.com</a></span> </div>
+                <div class="media-body"> <span><a href="#">{{ $settings['site_email'] ?? 'marazzo@themesground.com' }}</a></span> </div>
               </li>
             </ul>
           </div>
@@ -95,16 +95,21 @@
     <div class="container">
       <div class="col-xs-12 col-sm-4 no-padding social">
         <ul class="link">
-          <li class="fb pull-left"><a target="_blank" rel="nofollow" href="#" title="Facebook"></a></li>
-          <li class="tw pull-left"><a target="_blank" rel="nofollow" href="#" title="Twitter"></a></li>
-          <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a></li>
-          <li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>
-          <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="#" title="PInterest"></a></li>
-          <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="#" title="Linkedin"></a></li>
-          <li class="youtube pull-left"><a target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>
+          @if(!empty($settings['facebook_url']))
+          <li class="fb pull-left"><a target="_blank" rel="nofollow" href="{{ $settings['facebook_url'] }}" title="Facebook"></a></li>
+          @endif
+          @if(!empty($settings['twitter_url']))
+          <li class="tw pull-left"><a target="_blank" rel="nofollow" href="{{ $settings['twitter_url'] }}" title="Twitter"></a></li>
+          @endif
+          @if(!empty($settings['instagram_url']))
+          <li class="instagram pull-left"><a target="_blank" rel="nofollow" href="{{ $settings['instagram_url'] }}" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+          @endif
+          @if(!empty($settings['linkedin_url']))
+          <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="{{ $settings['linkedin_url'] }}" title="Linkedin"></a></li>
+          @endif
         </ul>
       </div>
-      <div class="col-xs-12 col-sm-4 no-padding copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </div>
+      <div class="col-xs-12 col-sm-4 no-padding copyright">{!! $settings['footer_text'] ?? '<a target="_blank" href="#">TreeWorld</a>' !!} </div>
       <div class="col-xs-12 col-sm-4 no-padding">
         <div class="clearfix payment-methods">
           <ul>

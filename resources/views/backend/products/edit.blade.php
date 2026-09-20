@@ -113,6 +113,30 @@
             </div>
 
             <div class="form-group">
+              <div class="control-label">Is Hot Deal</div>
+              <label class="custom-switch mt-2">
+                <input type="checkbox" name="is_hot_deal" value="1" class="custom-switch-input" {{ $product->is_hot_deal ? 'checked' : '' }}>
+                <span class="custom-switch-indicator"></span>
+                <span class="custom-switch-description">Yes, show in Hot Deals section</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <div class="control-label">Is Special Offer</div>
+              <label class="custom-switch mt-2">
+                <input type="checkbox" name="is_special_offer" value="1" class="custom-switch-input" {{ $product->is_special_offer ? 'checked' : '' }}>
+                <span class="custom-switch-indicator"></span>
+                <span class="custom-switch-description">Yes, show in Special Offers section</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label>Deal End Date (Optional)</label>
+              <input type="datetime-local" name="deal_end_date" class="form-control" value="{{ $product->deal_end_date ? \Carbon\Carbon::parse($product->deal_end_date)->format('Y-m-d\TH:i') : '' }}">
+              <small class="text-muted">Set a date to show the countdown timer.</small>
+            </div>
+
+            <div class="form-group">
               <label>Status</label>
               <select name="status" class="form-control selectric">
                 <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Publish</option>

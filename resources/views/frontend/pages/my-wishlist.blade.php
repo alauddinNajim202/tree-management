@@ -25,54 +25,42 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="col-md-2 col-sm-6 col-xs-6"><img src=\"{{ asset('assets/images/products/p1.jpg') }}\" alt="imga"></td>
-					<td class="col-md-7 col-sm-6 col-xs-6">
-						<div class="product-name"><a href="#">Floral Print Buttoned</a></div>
-						<div class="rating">
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star non-rate"></i>
-							<span class="review">( 06 Reviews )</span>
-						</div>
-						<div class="price">
-							$400.00
-							<span>$900.00</span>
-						</div>
-					</td>
-					<td class="col-md-2 ">
-						<a href="#" class="btn-upper btn btn-primary">Add to cart</a>
-					</td>
-					<td class="col-md-1 close-btn">
-						<a href="#" class=""><i class="fa fa-times"></i></a>
-					</td>
-				</tr>
-				<tr>
-					<td class="col-md-2"><img src=\"{{ asset('assets/images/products/p2.jpg') }}\" alt="phoro"></td>
-					<td class="col-md-7">
-						<div class="product-name"><a href="#">Floral Print Buttoned</a></div>
-						<div class="rating">
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star non-rate"></i>
-							<span class="review">( 06 Reviews )</span>
-						</div>
-						<div class="price">
-							$450.00
-							<span>$900.00</span>
-						</div>
-					</td>
-					<td class="col-md-2">
-						<a href="#" class="btn-upper btn btn-default">Add to cart</a>
-					</td>
-					<td class="col-md-1 close-btn">
-						<a href="#" class=""><i class="fa fa-times"></i></a>
-					</td>
-				</tr>
+                @php $wishlist = session('wishlist', []) @endphp
+                @if(count($wishlist) > 0)
+                    @foreach($wishlist as $id => $item)
+                    <tr>
+                        <td class="col-md-2"><img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}"></td>
+                        <td class="col-md-7">
+                            <div class="product-name"><a href="{{ route('product.detail', $item['slug']) }}">{{ $item['name'] }}</a></div>
+                            <div class="rating">
+                                <i class="fa fa-star rate"></i>
+                                <i class="fa fa-star rate"></i>
+                                <i class="fa fa-star rate"></i>
+                                <i class="fa fa-star rate"></i>
+                                <i class="fa fa-star rate"></i>
+                            </div>
+                            <div class="price">
+                                ${{ number_format($item['price'], 2) }}
+                            </div>
+                        </td>
+                        <td class="col-md-2">
+                            <form action="{{ route('cart.add', $id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $id }}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button type="submit" class="btn-upper btn btn-primary">Add to cart</button>
+                            </form>
+                        </td>
+                        <td class="col-md-1 close-btn">
+                            <a href="{{ route('wishlist.remove', $id) }}" class=""><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="4" class="text-center">Your wishlist is empty.</td>
+                    </tr>
+                @endif
 			</tbody>
 		</table>
 	</div>

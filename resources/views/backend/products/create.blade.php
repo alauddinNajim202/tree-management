@@ -112,6 +112,30 @@
             </div>
 
             <div class="form-group">
+              <div class="control-label">Is Hot Deal</div>
+              <label class="custom-switch mt-2">
+                <input type="checkbox" name="is_hot_deal" value="1" class="custom-switch-input">
+                <span class="custom-switch-indicator"></span>
+                <span class="custom-switch-description">Yes, show in Hot Deals section</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <div class="control-label">Is Special Offer</div>
+              <label class="custom-switch mt-2">
+                <input type="checkbox" name="is_special_offer" value="1" class="custom-switch-input">
+                <span class="custom-switch-indicator"></span>
+                <span class="custom-switch-description">Yes, show in Special Offers section</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label>Deal End Date (Optional)</label>
+              <input type="datetime-local" name="deal_end_date" class="form-control">
+              <small class="text-muted">Set a date to show the countdown timer.</small>
+            </div>
+
+            <div class="form-group">
               <label>Status</label>
               <select name="status" class="form-control selectric">
                 <option value="1">Publish</option>

@@ -9,9 +9,14 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $sliders = \App\Models\Slider::where('status', 1)->get();
         $homeCategories = \App\Models\Category::parents()->with('children')->where('status', 1)->orderBy('name')->get();
         $products = \App\Models\Product::where('status', 1)->orderBy('name')->get();
-        return view('frontend.pages.home', compact('homeCategories', 'products'));
+        $newProducts = \App\Models\Product::where('status', 1)->latest()->take(6)->get();
+        $featuredProducts = \App\Models\Product::where('status', 1)->where('is_featured', 1)->take(6)->get();
+        $hotDeals = \App\Models\Product::where('status', 1)->where('is_hot_deal', 1)->get();
+        $specialOffers = \App\Models\Product::where('status', 1)->where('is_special_offer', 1)->get();
+        return view('frontend.pages.home', compact('sliders', 'homeCategories', 'products', 'newProducts', 'featuredProducts', 'hotDeals', 'specialOffers'));
     }
 
     public function productDetail($slug)

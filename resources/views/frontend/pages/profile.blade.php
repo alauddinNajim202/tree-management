@@ -21,8 +21,8 @@
                 <div class="modern-sidebar">
                     <div class="sidebar-header">
                         <div class="user-avatar">
-                            @if(Auth::user()->avatar)
-                                <img src="{{ asset(Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid rgba(39,174,96,0.3);">
+                            @if(Auth::user()->image)
+                                <img src="{{ asset(Auth::user()->image) }}" alt="{{ Auth::user()->name }}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid rgba(39,174,96,0.3);">
                             @else
                                 <i class="fa fa-user-circle"></i>
                             @endif
@@ -95,8 +95,8 @@
                             <label class="info-title">Profile Photo</label>
                             <div class="avatar-upload-wrapper">
                                 <div class="avatar-preview" id="avatarPreview">
-                                    @if(Auth::user()->avatar)
-                                        <img src="{{ asset(Auth::user()->avatar) }}" alt="Avatar" id="avatarImg">
+                                    @if(Auth::user()->image)
+                                        <img src="{{ asset(Auth::user()->image) }}" alt="Avatar" id="avatarImg">
                                     @else
                                         <div class="avatar-placeholder" id="avatarPlaceholder">
                                             <i class="fa fa-user"></i>

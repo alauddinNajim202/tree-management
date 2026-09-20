@@ -69,6 +69,9 @@ class ProductController extends Controller
         $data = $request->except(['_token', 'thumbnail']);
         $data['slug'] = \Illuminate\Support\Str::slug($request->name);
         $data['is_featured'] = $request->has('is_featured') ? 1 : 0;
+        $data['is_hot_deal'] = $request->has('is_hot_deal') ? 1 : 0;
+        $data['is_special_offer'] = $request->has('is_special_offer') ? 1 : 0;
+        $data['deal_end_date'] = $request->deal_end_date ?: null;
 
         if ($request->hasFile('thumbnail')) {
             $path = storage_path('app/public/uploads/products');
@@ -105,6 +108,9 @@ class ProductController extends Controller
         $data = $request->except(['_token', 'thumbnail', '_method']);
         $data['slug'] = \Illuminate\Support\Str::slug($request->name);
         $data['is_featured'] = $request->has('is_featured') ? 1 : 0;
+        $data['is_hot_deal'] = $request->has('is_hot_deal') ? 1 : 0;
+        $data['is_special_offer'] = $request->has('is_special_offer') ? 1 : 0;
+        $data['deal_end_date'] = $request->deal_end_date ?: null;
 
         if ($request->hasFile('thumbnail')) {
             $path = storage_path('app/public/uploads/products');

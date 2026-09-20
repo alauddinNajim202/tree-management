@@ -251,7 +251,7 @@
                                                 <div class="col-sm-6 col-xs-6">
                                                     <div class="favorite-button m-t-5">
                                                         <a class="btn btn-primary" data-toggle="tooltip"
-                                                            data-placement="right" title="Wishlist" href="#">
+                                                            data-placement="right" title="Wishlist" href="{{ route('wishlist.add', $product->id) }}">
                                                             <i class="fa fa-heart"></i>
                                                         </a>
                                                         <a class="btn btn-primary" data-toggle="tooltip"

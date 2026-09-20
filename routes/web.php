@@ -36,7 +36,11 @@ Route::get('/blog', [\App\Http\Controllers\Web\HomeController::class, 'blog'])->
 Route::get('/blog-details', [\App\Http\Controllers\Web\HomeController::class, 'blogDetails'])->name('blog-details');
 Route::get('/contact', [\App\Http\Controllers\Web\HomeController::class, 'contact'])->name('contact');
 Route::get('/faq', [\App\Http\Controllers\Web\HomeController::class, 'faq'])->name('faq');
-Route::get('/my-wishlist', [\App\Http\Controllers\Web\HomeController::class, 'myWishlist'])->name('my-wishlist');
+// Wishlist Routes
+Route::get('/my-wishlist', [\App\Http\Controllers\Web\WishlistController::class, 'viewWishlist'])->name('my-wishlist');
+Route::get('/wishlist/add/{id}', [\App\Http\Controllers\Web\WishlistController::class, 'add'])->name('wishlist.add');
+Route::get('/wishlist/remove/{id}', [\App\Http\Controllers\Web\WishlistController::class, 'remove'])->name('wishlist.remove');
+
 Route::get('/product-comparison', [\App\Http\Controllers\Web\HomeController::class, 'productComparison'])->name('product-comparison');
 
 Route::get('/terms-conditions', [\App\Http\Controllers\Web\HomeController::class, 'termsConditions'])->name('terms-conditions');

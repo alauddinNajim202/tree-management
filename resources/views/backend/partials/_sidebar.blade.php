@@ -17,8 +17,8 @@
     
     <li class="menu-header">CMS</li>
     <li class="{{ Route::is('admin.subscribers.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.subscribers.index') }}"><i class="fas fa-envelope"></i> <span>Subscribers</span></a></li>
-    <li><a class="nav-link" href="#"><i class="fas fa-images"></i> <span>Sliders</span></a></li>
-    <li><a class="nav-link" href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+    <li class="{{ Route::is('admin.sliders.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.sliders.index') }}"><i class="fas fa-images"></i> <span>Sliders</span></a></li>
+    <li class="{{ Route::is('admin.settings.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
     </ul>
 
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

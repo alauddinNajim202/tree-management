@@ -49,7 +49,7 @@
                             </form>
                         </li>
                         <li class="lnk wishlist"> 
-                            <a class="add-to-cart" href="#" title="Wishlist"> 
+                            <a class="add-to-cart" href="{{ route('wishlist.add', $product->id) }}" title="Wishlist"> 
                                 <i class="icon fa fa-heart"></i> 
                             </a> 
                         </li>

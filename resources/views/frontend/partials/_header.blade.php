@@ -11,7 +11,7 @@
     <i class="fa fa-bars"></i>
   </button>
   <a href="{{ route('home') }}" class="mobile-logo">
-    <img src="{{ asset('assets/images/logo.png') }}" alt="TreeWorld">
+    <img src="{{ asset($settings['site_logo'] ?? 'assets/images/logo.png') }}" alt="{{ $settings['site_name'] ?? 'TreeWorld' }}">
   </a>
   <a href="{{ route('shopping-cart') }}" class="mobile-cart-icon">
     <i class="fa fa-shopping-bag"></i>
@@ -108,7 +108,7 @@
       <!-- LOGO -->
       <div class="modern-logo">
         <a href="{{ route('home') }}">
-          <img src="{{ asset('assets/images/logo.png') }}" alt="TreeWorld">
+          <img src="{{ asset($settings['site_logo'] ?? 'assets/images/logo.png') }}" alt="{{ $settings['site_name'] ?? 'TreeWorld' }}">
         </a>
       </div>
 
@@ -148,7 +148,7 @@
         <!-- Account Icon -->
         <div class="modern-icon-dropdown-wrapper">
           <a href="{{ route('dashboard') }}" class="modern-icon-link">
-            <i class="fa fa-user-o"></i>
+            <i class="fa fa-user"></i>
           </a>
           <ul class="modern-dropdown icon-dropdown">
             @auth

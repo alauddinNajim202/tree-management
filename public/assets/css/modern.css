@@ -139,6 +139,19 @@ h1, h2, h3, h4, h5, h6, .heading-title {
   margin-left: 8px;
 }
 
+/* Fix Cart Action Buttons Alignment */
+.cart .action ul {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.cart .action ul li {
+  display: inline-block;
+  margin: 0 !important;
+}
+
 /* Badges */
 .modern-badge {
   position: absolute;
