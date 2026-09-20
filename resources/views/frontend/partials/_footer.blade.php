@@ -60,11 +60,11 @@
           
           <div class="module-body">
             <ul class='list-unstyled'>
-              <li class="first"><a title="Your Account" href="#">About us</a></li>
-              <li><a title="Information" href="#">Customer Service</a></li>
-              <li><a title="Addresses" href="#">Company</a></li>
-              <li><a title="Addresses" href="#">Investor Relations</a></li>
-              <li class="last"><a title="Orders History" href="#">Advanced Search</a></li>
+              <li class="first"><a title="About Us" href="{{ route('about-us') }}">About Us</a></li>
+              <li><a title="Terms and Conditions" href="{{ route('terms-conditions') }}">Terms & Conditions</a></li>
+              <li><a title="Privacy Policy" href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
+              <li><a title="Contact Us" href="{{ route('contact') }}">Contact Us</a></li>
+              <li class="last"><a title="Orders History" href="{{ route('track-orders') }}">Track Order</a></li>
             </ul>
           </div>
           <!-- /.module-body --> 

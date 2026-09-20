@@ -47,6 +47,10 @@ class CheckoutController extends Controller
 
         $total = 0;
         foreach ($cart as $item) {
+            $product = \App\Models\Product::find($item['id']);
+            if (!$product || $product->stock < $item['quantity']) {
+                return redirect()->route('shopping-cart')->with('error', 'Sorry, ' . $item['name'] . ' does not have enough stock available.');
+            }
             $total += $item['price'] * $item['quantity'];
         }
 
@@ -67,7 +71,7 @@ class CheckoutController extends Controller
         $order->order_status = 'pending';
         $order->save();
 
-        // Create Order Items
+        // Create Order Items and Deduct Stock
         foreach ($cart as $item) {
             OrderItem::create([
                 'order_id' => $order->id,
@@ -77,6 +81,12 @@ class CheckoutController extends Controller
                 'price' => $item['price'],
                 'total' => $item['price'] * $item['quantity'],
             ]);
+
+            // Deduct stock
+            $product = \App\Models\Product::find($item['id']);
+            if ($product) {
+                $product->decrement('stock', $item['quantity']);
+            }
         }
 
         // Clear Cart

@@ -27,6 +27,23 @@ class OrderController extends Controller
         ]);
 
         $order = Order::findOrFail($id);
+
+        if ($request->order_status === 'cancelled' && $order->order_status !== 'cancelled') {
+            foreach($order->items as $item) {
+                $product = \App\Models\Product::find($item->product_id);
+                if ($product) {
+                    $product->increment('stock', $item->quantity);
+                }
+            }
+        } elseif ($order->order_status === 'cancelled' && $request->order_status !== 'cancelled') {
+            foreach($order->items as $item) {
+                $product = \App\Models\Product::find($item->product_id);
+                if ($product) {
+                    $product->decrement('stock', $item->quantity);
+                }
+            }
+        }
+
         $order->update([
             'order_status' => $request->order_status
         ]);

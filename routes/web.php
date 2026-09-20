@@ -43,7 +43,9 @@ Route::get('/wishlist/remove/{id}', [\App\Http\Controllers\Web\WishlistControlle
 
 Route::get('/product-comparison', [\App\Http\Controllers\Web\HomeController::class, 'productComparison'])->name('product-comparison');
 
+Route::get('/about-us', [\App\Http\Controllers\Web\HomeController::class, 'aboutUs'])->name('about-us');
 Route::get('/terms-conditions', [\App\Http\Controllers\Web\HomeController::class, 'termsConditions'])->name('terms-conditions');
+Route::get('/privacy-policy', [\App\Http\Controllers\Web\HomeController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('/track-orders', [\App\Http\Controllers\Web\TrackOrderController::class, 'index'])->name('track-orders');
 Route::post('/track-orders', [\App\Http\Controllers\Web\TrackOrderController::class, 'track'])->name('track-orders.post');
 Route::get('/404', [\App\Http\Controllers\Web\HomeController::class, 'notFound'])->name('404');

@@ -17,3 +17,7 @@ Route::post('orders/{id}/status', [\App\Http\Controllers\Backend\OrderController
 // Settings
 Route::get('/settings', [\App\Http\Controllers\Backend\SettingController::class, 'index'])->name('settings.index');
 Route::post('/settings', [\App\Http\Controllers\Backend\SettingController::class, 'update'])->name('settings.update');
+
+// Inventory
+Route::get('/inventory', [\App\Http\Controllers\Backend\InventoryController::class, 'index'])->name('inventory.index');
+Route::post('/inventory/update', [\App\Http\Controllers\Backend\InventoryController::class, 'update'])->name('inventory.update');

@@ -13,6 +13,7 @@
     <li class="menu-header">Ecommerce</li>
     <li class="{{ Route::is('admin.categories.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.categories.index') }}"><i class="fas fa-tags"></i> <span>Categories</span></a></li>
     <li class="{{ Route::is('admin.products.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.products.index') }}"><i class="fas fa-box"></i> <span>Products</span></a></li>
+    <li class="{{ Route::is('admin.inventory.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.inventory.index') }}"><i class="fas fa-boxes"></i> <span>Inventory</span></a></li>
     <li class="{{ Route::is('admin.orders.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.orders') }}"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
     
     <li class="menu-header">CMS</li>

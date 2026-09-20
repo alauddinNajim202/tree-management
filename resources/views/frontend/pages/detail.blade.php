@@ -221,8 +221,13 @@
                                                     </div>
                                                     <div class="pull-left">
                                                         <div class="stock-box">
-                                                            <span
-                                                                class="value">{{ $product->status ? 'In Stock' : 'Out of Stock' }}</span>
+                                                            <span class="value">
+                                                                @if($product->stock > 0)
+                                                                    <span class="text-success">In Stock ({{ $product->stock }})</span>
+                                                                @else
+                                                                    <span class="text-danger">Out of Stock</span>
+                                                                @endif
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -290,10 +295,14 @@
                                                 </div>
 
                                                 <div class="add-btn">
-                                                    <form action="{{ route('cart.add', $product->id) }}" method="POST" style="display:inline;">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
-                                                    </form>
+                                                    @if($product->stock > 0)
+                                                        <form action="{{ route('cart.add', $product->id) }}" method="POST" style="display:inline;">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
+                                                        </form>
+                                                    @else
+                                                        <button type="button" class="btn btn-danger disabled" disabled><i class="fa fa-ban inner-right-vs"></i> OUT OF STOCK</button>
+                                                    @endif
                                                 </div>
 
 

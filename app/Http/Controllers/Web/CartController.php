@@ -24,10 +24,17 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($id);
         
+        if ($product->stock <= 0) {
+            return redirect()->back()->with('error', 'This product is out of stock.');
+        }
+
         $cart = Session::get('cart', []);
         
         // If product already in cart, increment quantity
         if(isset($cart[$id])) {
+            if ($cart[$id]['quantity'] + 1 > $product->stock) {
+                return redirect()->back()->with('error', 'Cannot add more. Only ' . $product->stock . ' available in stock.');
+            }
             $cart[$id]['quantity']++;
         } else {
             // Add new product to cart
@@ -56,6 +63,10 @@ class CartController extends Controller
         $cart = Session::get('cart', []);
 
         if(isset($cart[$request->id])) {
+            $product = Product::find($request->id);
+            if ($product && $request->quantity > $product->stock) {
+                return redirect()->back()->with('error', 'Cannot update quantity. Only ' . $product->stock . ' available in stock.');
+            }
             $cart[$request->id]['quantity'] = $request->quantity;
             Session::put('cart', $cart);
             return redirect()->back()->with('success', 'Cart updated successfully!');

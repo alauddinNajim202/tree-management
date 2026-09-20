@@ -621,42 +621,36 @@
 
                     <div id="hero" class="hero-slider-modern">
                         <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-                            <div class="item" style="background-image: url(assets/images/sliders/01.jpg);">
+                            @forelse($sliders as $slider)
+                            <div class="item" style="background-image: url('{{ asset($slider->image) }}');">
+                                <div class="container-fluid">
+                                    <div class="caption bg-color vertical-center text-left">
+                                        @if($slider->subtitle)
+                                            <div class="slider-header fadeInDown-1">{{ $slider->subtitle }}</div>
+                                        @endif
+                                        @if($slider->title)
+                                            <div class="big-text fadeInDown-1"> {{ $slider->title }} </div>
+                                        @endif
+                                        <div class="button-holder fadeInDown-3"> 
+                                            <a href="{{ $slider->link ?? '#' }}" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> 
+                                        </div>
+                                    </div>
+                                    <!-- /.caption -->
+                                </div>
+                                <!-- /.container-fluid -->
+                            </div>
+                            @empty
+                            <div class="item" style="background-image: url('{{ asset('assets/images/sliders/01.jpg') }}');">
                                 <div class="container-fluid">
                                     <div class="caption bg-color vertical-center text-left">
                                         <div class="slider-header fadeInDown-1">Top Brands</div>
                                         <div class="big-text fadeInDown-1"> New Collections </div>
-                                        <div class="excerpt fadeInDown-2 hidden-xs"> <span>Lorem ipsum dolor sit amet,
-                                                consectetur adipisicing elit.</span> </div>
-                                        <div class="button-holder fadeInDown-3"> <a
-                                                href="index6c11.html?page=single-product"
-                                                class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a>
-                                        </div>
+                                        <div class="button-holder fadeInDown-3"> <a href="#" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
                                     </div>
-                                    <!-- /.caption -->
                                 </div>
-                                <!-- /.container-fluid -->
                             </div>
+                            @endforelse
                             <!-- /.item -->
-
-                            <div class="item" style="background-image: url(assets/images/sliders/02.jpg);">
-                                <div class="container-fluid">
-                                    <div class="caption bg-color vertical-center text-left">
-                                        <div class="slider-header fadeInDown-1">Spring 2024</div>
-                                        <div class="big-text fadeInDown-1"> Berry Plants Fashion </div>
-                                        <div class="excerpt fadeInDown-2 hidden-xs"> <span>Nemo enim ipsam voluptatem quia
-                                                voluptas sit aspernatur aut odit aut fugit</span> </div>
-                                        <div class="button-holder fadeInDown-3"> <a
-                                                href="index6c11.html?page=single-product"
-                                                class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.caption -->
-                                </div>
-                                <!-- /.container-fluid -->
-                            </div>
-                            <!-- /.item -->
-
                         </div>
                         <!-- /.owl-carousel -->
                     </div>

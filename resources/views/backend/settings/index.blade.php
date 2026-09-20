@@ -1,5 +1,9 @@
 @extends('backend.layouts.app')
 
+@push('css-libraries')
+  <link rel="stylesheet" href="{{ asset('backend/assets/modules/summernote/summernote-bs4.css') }}">
+@endpush
+
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -92,6 +96,29 @@
                         </div>
                     </div>
 
+                    <h5 class="mt-4 mb-3">CMS Pages</h5>
+
+                    <div class="row mb-3">
+                        <label for="about_us" class="col-sm-2 col-form-label">About Us</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control summernote" name="about_us" id="about_us">{!! $settings['about_us'] ?? '' !!}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="terms_conditions" class="col-sm-2 col-form-label">Terms & Conditions</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control summernote" name="terms_conditions" id="terms_conditions">{!! $settings['terms_conditions'] ?? '' !!}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="privacy_policy" class="col-sm-2 col-form-label">Privacy Policy</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control summernote" name="privacy_policy" id="privacy_policy">{!! $settings['privacy_policy'] ?? '' !!}</textarea>
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary mt-3">Save Settings</button>
                 </form>
             </div>
@@ -99,3 +126,7 @@
     </div> <!-- end col -->
 </div> <!-- end row -->
 @endsection
+
+@push('js-libraries')
+  <script src="{{ asset('backend/assets/modules/summernote/summernote-bs4.js') }}"></script>
+@endpush

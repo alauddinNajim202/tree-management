@@ -76,9 +76,22 @@ class HomeController extends Controller
     }
 
 
+    public function aboutUs()
+    {
+        $content = \App\Models\Setting::where('key', 'about_us')->value('value');
+        return view('frontend.pages.about-us', compact('content'));
+    }
+
     public function termsConditions()
     {
-        return view('frontend.pages.terms-conditions');
+        $content = \App\Models\Setting::where('key', 'terms_conditions')->value('value');
+        return view('frontend.pages.terms-conditions', compact('content'));
+    }
+
+    public function privacyPolicy()
+    {
+        $content = \App\Models\Setting::where('key', 'privacy_policy')->value('value');
+        return view('frontend.pages.privacy-policy', compact('content'));
     }
 
     public function trackOrders()
