@@ -24,41 +24,55 @@
 	<div class="col-md-12 contact-title">
 		<h4>Contact Form</h4>
 	</div>
-	<div class="col-md-4 ">
-		<form class="register-form" role="form">
+	
+	@if(session('success'))
+		<div class="col-md-12">
+			<div class="alert alert-success">{{ session('success') }}</div>
+		</div>
+	@endif
+
+	@if($errors->any())
+		<div class="col-md-12">
+			<div class="alert alert-danger">
+				<ul class="mb-0">
+					@foreach($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
+	@endif
+
+	<form class="register-form" role="form" action="{{ route('contact.store') }}" method="POST">
+		@csrf
+		<div class="col-md-4 ">
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputName">Your Name <span>*</span></label>
-		    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputName" placeholder="">
-		  </div>
-		</form>
-	</div>
-	<div class="col-md-4">
-		<form class="register-form" role="form">
+				<label class="info-title" for="exampleInputName">Your Name <span>*</span></label>
+				<input type="text" name="name" class="form-control unicase-form-control text-input" id="exampleInputName" placeholder="Name" required>
+			</div>
+		</div>
+		<div class="col-md-4">
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-		    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="">
-		  </div>
-		</form>
-	</div>
-	<div class="col-md-4">
-		<form class="register-form" role="form">
+				<label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+				<input type="email" name="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Email" required>
+			</div>
+		</div>
+		<div class="col-md-4">
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputTitle">Title <span>*</span></label>
-		    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputTitle" placeholder="Title">
-		  </div>
-		</form>
-	</div>
-	<div class="col-md-12">
-		<form class="register-form" role="form">
+				<label class="info-title" for="exampleInputTitle">Title <span>*</span></label>
+				<input type="text" name="title" class="form-control unicase-form-control text-input" id="exampleInputTitle" placeholder="Title" required>
+			</div>
+		</div>
+		<div class="col-md-12">
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputComments">Your Comments <span>*</span></label>
-		    <textarea class="form-control unicase-form-control" id="exampleInputComments"></textarea>
-		  </div>
-		</form>
-	</div>
-	<div class="col-md-12 outer-bottom-small m-t-20">
-		<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Send Message</button>
-	</div>
+				<label class="info-title" for="exampleInputComments">Your Comments <span>*</span></label>
+				<textarea name="comments" class="form-control unicase-form-control" id="exampleInputComments" required></textarea>
+			</div>
+		</div>
+		<div class="col-md-12 outer-bottom-small m-t-20">
+			<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Send Message</button>
+		</div>
+	</form>
 </div>
 <div class="col-md-4 contact-info">
 	<div class="contact-title">

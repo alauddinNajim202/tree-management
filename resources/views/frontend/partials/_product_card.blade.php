@@ -63,7 +63,7 @@
                             </a> 
                         </li>
                         <li class="lnk"> 
-                            <a class="add-to-cart" href="#" title="Compare"> 
+                            <a data-toggle="tooltip" class="add-to-cart" href="{{ route('compare.add', $product->id) }}" title="Compare"> 
                                 <i class="fa fa-signal" aria-hidden="true"></i>
                             </a> 
                         </li>

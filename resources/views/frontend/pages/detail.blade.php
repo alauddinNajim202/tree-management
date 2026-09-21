@@ -260,7 +260,7 @@
                                                             <i class="fa fa-heart"></i>
                                                         </a>
                                                         <a class="btn btn-primary" data-toggle="tooltip"
-                                                            data-placement="right" title="Add to Compare" href="#">
+                                                            data-placement="right" title="Add to Compare" href="{{ route('compare.add', $product->id) }}">
                                                             <i class="fa fa-signal"></i>
                                                         </a>
                                                         <a class="btn btn-primary" data-toggle="tooltip"

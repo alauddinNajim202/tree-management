@@ -41,6 +41,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('compare.index') }}">
+                                <i class="fa fa-signal"></i> Compare
+                            </a>
+                        </li>
+                        <li>
                             <form method="POST" action="{{ route('logout') }}" id="sidebar-logout-form" style="display: none;">
                                 @csrf
                             </form>
@@ -97,6 +102,19 @@
                                     <h3>Profile</h3>
                                     <p>Manage account details</p>
                                     <a href="{{ route('profile.edit') }}" class="btn btn-primary btn-sm">Edit Profile</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="margin-top: 15px;">
+                            <div class="dashboard-stat-card">
+                                <div class="stat-icon" style="background-color: #f39c12;">
+                                    <i class="fa fa-signal"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Compare</h3>
+                                    <p>Compare products</p>
+                                    <a href="{{ route('compare.index') }}" class="btn btn-primary btn-sm">Compare</a>
                                 </div>
                             </div>
                         </div>

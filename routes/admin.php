@@ -21,3 +21,14 @@ Route::post('/settings', [\App\Http\Controllers\Backend\SettingController::class
 // Inventory
 Route::get('/inventory', [\App\Http\Controllers\Backend\InventoryController::class, 'index'])->name('inventory.index');
 Route::post('/inventory/update', [\App\Http\Controllers\Backend\InventoryController::class, 'update'])->name('inventory.update');
+
+// Contact Messages
+Route::get('/contact-messages', [\App\Http\Controllers\Backend\ContactMessageController::class, 'index'])->name('contact-messages.index');
+Route::delete('/contact-messages/{id}', [\App\Http\Controllers\Backend\ContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
+
+// Live Chat
+Route::get('/chats', [\App\Http\Controllers\Backend\ChatController::class, 'index'])->name('chats.index');
+Route::get('/chats/{id}', [\App\Http\Controllers\Backend\ChatController::class, 'show'])->name('chats.show');
+Route::post('/chats/{id}/reply', [\App\Http\Controllers\Backend\ChatController::class, 'reply'])->name('chats.reply');
+Route::get('/chats/{id}/messages', [\App\Http\Controllers\Backend\ChatController::class, 'messages'])->name('chats.messages');
+Route::post('/chats/{id}/close', [\App\Http\Controllers\Backend\ChatController::class, 'close'])->name('chats.close');

@@ -19,143 +19,86 @@
 			<h1 class="page-title text-center heading-title">Product Comparison</h1>
 			<div class="table-responsive">
 				<table class="table compare-table inner-top-vs">
-					<tr>
-						<th>Products</th>
-						<td>
-							<div class="product">
-								<div class="product-image">
-									<div class="image">
-										<a href="detail.html">
-										    <img alt="" src=\"{{ asset('assets/images/products/p1.jpg') }}\">
-										</a>
-									</div>
-
-									<div class="product-info text-left">
-										<h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-										<div class="action">
-										    <a class="lnk btn btn-primary" href="#">Add To Cart</a>
+					@if($compareProducts->count() > 0)
+						<tr>
+							<th>Products</th>
+							@foreach($compareProducts as $product)
+							<td>
+								<div class="product">
+									<div class="product-image">
+										<div class="image">
+											<a href="{{ route('product.detail', $product->slug) }}">
+												<img alt="{{ $product->name }}" src="{{ asset($product->thumbnail) }}">
+											</a>
 										</div>
-
+										<div class="product-info text-left">
+											<h3 class="name"><a href="{{ route('product.detail', $product->slug) }}">{{ $product->name }}</a></h3>
+											<div class="action mt-2">
+												<form action="{{ route('cart.add', $product->id) }}" method="POST">
+													@csrf
+													<input type="hidden" name="quantity" value="1">
+													<button type="submit" class="lnk btn btn-primary" style="margin-top: 10px;">Add To Cart</button>
+												</form>
+											</div>
+										</div>
 									</div>
 								</div>
-							</div>
-						</td>
+							</td>
+							@endforeach
+						</tr>
 
-						<td>
-							<div class="product">
-								<div class="product-image">
-									<div class="image">
-										<a href="detail.html">
-										    <img alt="" src=\"{{ asset('assets/images/products/p2.jpg') }}\">
-										</a>
-									</div>
-
-									<div class="product-info text-left">
-										<h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-										<div class="action">
-										    <a class="lnk btn btn-primary" href="#">Add To Cart</a>
-										</div>
-
-									</div>
+						<tr>
+							<th>Price</th>
+							@foreach($compareProducts as $product)
+							<td>
+								<div class="product-price">
+									@if($product->discount_price)
+										<span class="price"> ${{ number_format($product->discount_price, 2) }} </span>
+										<span class="price-before-discount">${{ number_format($product->price, 2) }}</span>
+									@else
+										<span class="price"> ${{ number_format($product->price, 2) }} </span>
+									@endif
 								</div>
-							</div>
-						</td>
+							</td>
+							@endforeach
+						</tr>
 
-						<td>
-							<div class="product">
-								<div class="product-image">
-									<div class="image">
-										<a href="detail.html">
-										    <img alt="" src=\"{{ asset('assets/images/products/p4.jpg') }}\">
-										</a>
-									</div>
+						<tr>
+							<th>Description</th>
+							@foreach($compareProducts as $product)
+							<td><p class="text">{!! Str::limit(strip_tags($product->description), 150) !!}</p></td>
+							@endforeach
+						</tr>
 
-									<div class="product-info text-left">
-										<h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-										<div class="action">
-										    <a class="lnk btn btn-primary" href="#">Add To Cart</a>
-										</div>
+						<tr>
+							<th>Availability</th>
+							@foreach($compareProducts as $product)
+							<td>
+								@if($product->quantity > 0)
+									<p class="in-stock" style="color: #4CAF50;">In Stock</p>
+								@else
+									<p class="out-of-stock" style="color: red;">Out of Stock</p>
+								@endif
+							</td>
+							@endforeach
+						</tr>
 
-									</div>
-								</div>
-							</div>
-						</td>
-
-						<td>
-							<div class="product">
-								<div class="product-image">
-									<div class="image">
-										<a href="detail.html">
-										    <img alt="" src=\"{{ asset('assets/images/products/p5.jpg') }}\">
-										</a>
-									</div>
-
-									<div class="product-info text-left">
-										<h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-										<div class="action">
-										    <a class="lnk btn btn-primary" href="#">Add To Cart</a>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</td>
-					</tr>
-
-					<tr>
-						<th>Price</th>
-						<td>
-							<div class="product-price">
-								<span class="price"> $300.00 </span>
-								<span class="price-before-discount">$500.00</span>
-							</div>
-						</td>
-
-						<td>
-							<div class="product-price">
-								<span class="price"> $350.00 </span>
-								<span class="price-before-discount">$500.00</span>
-							</div>
-						</td>
-
-						<td>
-							<div class="product-price">
-								<span class="price"> $400.00 </span>
-								<span class="price-before-discount">$500.00</span>
-							</div>
-						</td>
-
-						<td>
-							<div class="product-price">
-								<span class="price"> $3600.00 </span>
-								<span class="price-before-discount">$500.00</span>
-							</div>
-						</td>
-					</tr>
-
-					<tr>
-						<th>Description</th>
-						<td><p class="text">Proin semper eros ac posuere ultrices. Nulla quis mi in risus volutpat blandit vestibulum in lorem. In euismod laoreet sapien vel gravida.  Proin sem per eros ac posuere ultrices. Nulla quis mi in risus.<p></td>
-						<td><p class="text">Proin semper eros ac posuere ultrices. Nulla quis mi in risus volutpat blandit vestibulum in lorem. In euismod laoreet sapien vel gravida.  Proin sem per eros ac posuere ultrices.<p> </td>
-						<td><p class="text">Proin semper eros ac posuere ultrices. Nulla quis mi in risus volutpat blandit vestibulum in lorem. In euismod laoreet sapien vel gravida.<p></td>
-						<td><p class="text">Proin semper eros ac posuere ultrices. Nulla quis mi in risus volutpat blandit vestibulum in lorem. In euismod laoreet sapien vel gravida.  Proin sem per eros ac posuere ultrices. Nulla quis mi in risus.<p></td> 
-					</tr>
-
-					<tr>
-						 <th>Availability</th>
-	                     <td><p class="in-stock">In Stock</p></td>
-	                     <td><p class="in-stock">In Stock</p></td>
-	                     <td><p class="in-stock">In Stock</p></td>
-	                     <td><p class="in-stock">In Stock</p></td>
-					</tr>
-
-					<tr >
-						<th>Remove</th>
-						<td class='text-center'><a href="#" class="remove-icon"><i class="fa fa-times"></i></a></td>
-						<td class='text-center'><a href="#" class="remove-icon"><i class="fa fa-times"></i></a></td>
-						<td class='text-center'><a href="#" class="remove-icon"><i class="fa fa-times"></i></a></td>
-						<td class='text-center'><a href="#" class="remove-icon"><i class="fa fa-times"></i></a></td>
-					</tr>
+						<tr>
+							<th>Remove</th>
+							@foreach($compareProducts as $product)
+							<td class='text-center'>
+								<a href="{{ route('compare.remove', $product->id) }}" class="remove-icon"><i class="fa fa-times"></i></a>
+							</td>
+							@endforeach
+						</tr>
+					@else
+						<tr>
+							<td class="text-center" style="padding: 40px;">
+								<h4>Your compare list is empty.</h4>
+								<a href="{{ route('category') }}" class="btn btn-primary" style="margin-top: 20px;">Continue Shopping</a>
+							</td>
+						</tr>
+					@endif
 				</table>
 			</div>
             </div>
