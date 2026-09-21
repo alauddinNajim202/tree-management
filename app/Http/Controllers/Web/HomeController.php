@@ -16,7 +16,10 @@ class HomeController extends Controller
         $featuredProducts = \App\Models\Product::where('status', 1)->where('is_featured', 1)->take(6)->get();
         $hotDeals = \App\Models\Product::where('status', 1)->where('is_hot_deal', 1)->get();
         $specialOffers = \App\Models\Product::where('status', 1)->where('is_special_offer', 1)->get();
-        return view('frontend.pages.home', compact('sliders', 'homeCategories', 'products', 'newProducts', 'featuredProducts', 'hotDeals', 'specialOffers'));
+        $productTags = \App\Models\Product::where('status', 1)->whereNotNull('tags')->pluck('tags')
+            ->flatMap(fn($t) => array_map('trim', explode(',', $t)))
+            ->unique()->filter()->values();
+        return view('frontend.pages.home', compact('sliders', 'homeCategories', 'products', 'newProducts', 'featuredProducts', 'hotDeals', 'specialOffers', 'productTags'));
     }
 
     public function productDetail($slug)
@@ -31,8 +34,10 @@ class HomeController extends Controller
             ->where('status', 1)
             ->take(3)
             ->get();
-            
-        return view('frontend.pages.detail', compact('product', 'relatedProducts', 'hotDeals'));
+        $productTags = \App\Models\Product::where('status', 1)->whereNotNull('tags')->pluck('tags')
+            ->flatMap(fn($t) => array_map('trim', explode(',', $t)))
+            ->unique()->filter()->values();
+        return view('frontend.pages.detail', compact('product', 'relatedProducts', 'hotDeals', 'productTags'));
     }
 
     public function shoppingCart()

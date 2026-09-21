@@ -35,13 +35,17 @@ Route::get('/product/{slug}', [\App\Http\Controllers\Web\HomeController::class, 
 Route::get('/blog', [\App\Http\Controllers\Web\HomeController::class, 'blog'])->name('blog');
 Route::get('/blog-details', [\App\Http\Controllers\Web\HomeController::class, 'blogDetails'])->name('blog-details');
 Route::get('/contact', [\App\Http\Controllers\Web\HomeController::class, 'contact'])->name('contact');
+Route::post('/contact', [\App\Http\Controllers\Web\ContactMessageController::class, 'store'])->name('contact.store');
 Route::get('/faq', [\App\Http\Controllers\Web\HomeController::class, 'faq'])->name('faq');
 // Wishlist Routes
 Route::get('/my-wishlist', [\App\Http\Controllers\Web\WishlistController::class, 'viewWishlist'])->name('my-wishlist');
 Route::get('/wishlist/add/{id}', [\App\Http\Controllers\Web\WishlistController::class, 'add'])->name('wishlist.add');
 Route::get('/wishlist/remove/{id}', [\App\Http\Controllers\Web\WishlistController::class, 'remove'])->name('wishlist.remove');
 
-Route::get('/product-comparison', [\App\Http\Controllers\Web\HomeController::class, 'productComparison'])->name('product-comparison');
+// Compare Routes
+Route::get('/compare', [\App\Http\Controllers\Web\CompareController::class, 'index'])->name('compare.index');
+Route::get('/compare/add/{id}', [\App\Http\Controllers\Web\CompareController::class, 'add'])->name('compare.add');
+Route::get('/compare/remove/{id}', [\App\Http\Controllers\Web\CompareController::class, 'remove'])->name('compare.remove');
 
 Route::get('/about-us', [\App\Http\Controllers\Web\HomeController::class, 'aboutUs'])->name('about-us');
 Route::get('/terms-conditions', [\App\Http\Controllers\Web\HomeController::class, 'termsConditions'])->name('terms-conditions');
@@ -50,3 +54,9 @@ Route::get('/track-orders', [\App\Http\Controllers\Web\TrackOrderController::cla
 Route::post('/track-orders', [\App\Http\Controllers\Web\TrackOrderController::class, 'track'])->name('track-orders.post');
 Route::get('/404', [\App\Http\Controllers\Web\HomeController::class, 'notFound'])->name('404');
 Route::post('/subscribe', [\App\Http\Controllers\Web\SubscriberController::class, 'store'])->name('subscribe');
+
+// Live Chat Routes (auth required)
+Route::middleware('auth')->group(function () {
+    Route::get('/chat/init', [\App\Http\Controllers\Web\ChatController::class, 'getOrCreate'])->name('chat.init');
+    Route::post('/chat/send', [\App\Http\Controllers\Web\ChatController::class, 'send'])->name('chat.send');
+});

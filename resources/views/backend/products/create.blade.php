@@ -136,6 +136,12 @@
             </div>
 
             <div class="form-group">
+              <label>Product Tags</label>
+              <input type="text" name="tags" class="form-control" id="tags-input" placeholder="e.g. indoor, tropical, rare">
+              <small class="text-muted">Comma separated tags (e.g. indoor, tropical, rare)</small>
+            </div>
+
+            <div class="form-group">
               <label>Status</label>
               <select name="status" class="form-control selectric">
                 <option value="1">Publish</option>
